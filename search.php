@@ -31,7 +31,7 @@ if ($tutorial_db->connect_errno) {
 // Define Output HTML Formating
 $html = '';
 $html .= '<li class="result">';
-$html .= '<a target="_blank" href="urlString">';
+$html .= '<a href="urlString">';
 $html .= '<h3>nameString</h3>';
 $html .= '<h4>functionString</h4>';
 $html .= '</a>';
@@ -59,7 +59,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 			// Format Output Strings And Hightlight Matches
 			$display_function = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['functio']);
 			$display_name = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['lat_name']);
-			$display_url = 'http://fettenajs.com/med/Code/muscle.php?m='.urlencode($result['id']);
+			$display_url = 'muscle.php?m='.urlencode($result['id']);
 
 			// Insert Name
 			$output = str_replace('nameString', $display_name, $html);
