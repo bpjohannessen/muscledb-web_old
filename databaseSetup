@@ -1,0 +1,9 @@
+#! /bin/bash
+
+pass=$() 
+
+echo "Importing database:"
+mysql -u root --password=$pass -e 'create database db_muscles'
+mysql -u root --password=$pass db_muscles < ./db_muscles.sql 
+
+echo "Done."
