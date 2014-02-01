@@ -1,9 +1,7 @@
 <?php
 /************************************************
-	The MySQL credentials file
+	Require once the real 
+	MySQL credential variable file
 ************************************************/
-$dbhost = "localhost";
-$dbname = "db_muscles";
-$dbuser = "";
-$dbpass = "";
+require_once("../../../../db_cred.php");
 ?>
