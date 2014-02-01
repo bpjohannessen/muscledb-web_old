@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 01, 2014 at 01:51 PM
+-- Generation Time: Feb 01, 2014 at 05:54 PM
 -- Server version: 5.5.31-0ubuntu0.12.04.1
 -- PHP Version: 5.3.10-1ubuntu3.7
 
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `tbl_muscles` (
   `origo` text NOT NULL,
   `insertio` text NOT NULL,
   `functio` text NOT NULL,
+  `nerve` text NOT NULL,
   `comment` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
@@ -45,9 +46,9 @@ CREATE TABLE IF NOT EXISTS `tbl_muscles` (
 -- Dumping data for table `tbl_muscles`
 --
 
-INSERT INTO `tbl_muscles` (`id`, `lat_name`, `name`, `muscle_group`, `muscle_subgroup`, `muscle_subsubgroup`, `origo`, `insertio`, `functio`, `comment`) VALUES
-(1, 'M. temporalis', '', 1, 1, 0, 'Planum temporale, fascia temporalis', 'Processus coronoideus mandibulae', 'Elevation of the mandible; posterior fibers pull the mandible backward', ''),
-(2, 'M. masseter', '', 1, 1, 0, 'Arcus zygomaticus', 'Tuberositas masseterica mandibulae', 'Elevation of the mandible', '');
+INSERT INTO `tbl_muscles` (`id`, `lat_name`, `name`, `muscle_group`, `muscle_subgroup`, `muscle_subsubgroup`, `origo`, `insertio`, `functio`, `nerve`, `comment`) VALUES
+(1, 'M. temporalis', '', 1, 1, 0, 'Planum temporale, fascia temporalis', 'Processus coronoideus mandibulae', 'Elevation of the mandible; posterior fibers pulls the mandible backward', 'Nn. temporales profundi', ''),
+(2, 'M. masseter', '', 1, 1, 0, 'Arcus zygomaticus', 'Tuberositas masseterica mandibulae', 'Elevation of the mandible', 'N. mandibularis', '');
 
 -- --------------------------------------------------------
 
