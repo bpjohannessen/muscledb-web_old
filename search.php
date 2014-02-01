@@ -9,10 +9,7 @@
 ************************************************/
 
 // Credentials
-$dbhost = "localhost";
-$dbname = "db_muscles";
-$dbuser = "";
-$dbpass = "";
+require_once("db_cred.php");
 
 //	Connection
 global $tutorial_db;
