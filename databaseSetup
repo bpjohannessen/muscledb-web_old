@@ -1,6 +1,6 @@
 #! /bin/bash
 
-pass="Raggenen5"
+pass=""
 
 mysql -u root --password=$pass -e 'DROP DATABASE db_muscles'
 echo "Importing database:"
