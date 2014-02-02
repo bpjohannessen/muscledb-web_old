@@ -33,6 +33,7 @@ $html = '';
 $html .= '<li class="result">';
 $html .= '<a href="urlString">';
 $html .= '<h3>nameString</h3>';
+$html .= '<h4>nameEngString</h4>';
 $html .= '<h4>functionString</h4>';
 $html .= '</a>';
 $html .= '</li>';
@@ -44,7 +45,7 @@ $search_string = $tutorial_db->real_escape_string($search_string);
 // Check Length More Than One Character
 if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	// Build Query
-	$query = 'SELECT * FROM tbl_muscles WHERE lat_name LIKE "%'.$search_string.'%" OR origo LIKE "%'.$search_string.'%" OR insertio LIKE "%'.$search_string.'%" OR functio LIKE "%'.$search_string.'%"';
+	$query = 'SELECT * FROM tbl_muscles WHERE lat_name LIKE "%'.$search_string.'%" OR name LIKE "%'.$search_string.'%" OR origo LIKE "%'.$search_string.'%" OR insertio LIKE "%'.$search_string.'%" OR functio LIKE "%'.$search_string.'%"';
 
 	// Do Search
 	$result = $tutorial_db->query($query);
@@ -59,10 +60,16 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 			// Format Output Strings And Hightlight Matches
 			$display_function = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['functio']);
 			$display_name = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['lat_name']);
+			$display_engname = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['name']);
+			
+			// This must be changed if file name for the muscle detail file is changed
 			$display_url = 'muscle.php?m='.urlencode($result['id']);
 
 			// Insert Name
 			$output = str_replace('nameString', $display_name, $html);
+			
+			// Insert English Name
+			$output = str_replace('nameEngString', $display_engname, $output);
 
 			// Insert Function
 			$output = str_replace('functionString', $display_function, $output);
@@ -73,7 +80,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 			// Output
 			echo($output);
 		}
-	}else{
+	} else {
 
 		// Format No Results Output
 		$output = str_replace('urlString', 'javascript:void(0);', $html);
@@ -85,23 +92,4 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	}
 }
 
-
-/*
-// Build Function List (Insert All Functions Into DB - From PHP)
-
-// Compile Functions Array
-$functions = get_defined_functions();
-$functions = $functions['internal'];
-
-// Loop, Format and Insert
-foreach ($functions as $function) {
-	$function_name = str_replace("_", " ", $function);
-	$function_name = ucwords($function_name);
-
-	$query = '';
-	$query = 'INSERT INTO search SET id = "", function = "'.$function.'", name = "'.$function_name.'"';
-
-	$tutorial_db->query($query);
-}
-*/
 ?>
