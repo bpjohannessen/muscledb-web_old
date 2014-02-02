@@ -129,7 +129,7 @@ CREATE TABLE `tbl_muscles` (
 
 LOCK TABLES `tbl_muscles` WRITE;
 /*!40000 ALTER TABLE `tbl_muscles` DISABLE KEYS */;
-INSERT INTO `tbl_muscles` (`id`, `lat_name`, `name`, `muscle_group`, `muscle_subgroup`, `muscle_subsubgroup`, `origo`, `insertio`, `functio`, `nerve`, `comment`) VALUES (1,'M. temporalis','',1,1,0,'Planum temporale, fascia temporalis','Processus coronoideus mandibulae','Elevation of the mandible; posterior fibers pulls the mandible backward','Nn. temporales profundi',''),(2,'M. masseter','',1,1,0,'Arcus zygomaticus','Tuberositas masseterica mandibulae','Elevation of the mandible','N. mandibularis',''),(3,'M. pterygoideus lateralis','',1,1,0,'Facies infratemporalis alae majoris ossis sphenoidalis, lamina lateralis processus pterygoidei','Fovea pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','N. pterygoideus lateralis',''),(4,'M. pterygoideus medialis','',1,1,0,'Fossa pterygoidea ossis sphenoidalis','Tuberositas pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','N. mandibularis','');
+INSERT INTO `tbl_muscles` (`id`, `lat_name`, `name`, `muscle_group`, `muscle_subgroup`, `muscle_subsubgroup`, `origo`, `insertio`, `functio`, `nerve`, `comment`) VALUES (1,'M. temporalis','Temporal muscle',1,1,0,'Planum temporale, fascia temporalis','Processus coronoideus mandibulae','Elevation of the mandible; posterior fibers pulls the mandible backward','Nn. temporales profundi',''),(2,'M. masseter','Masseter muscle',1,1,0,'Arcus zygomaticus','Tuberositas masseterica mandibulae','Elevation of the mandible','N. mandibularis',''),(3,'M. pterygoideus lateralis','Lateral pterygoid muscle',1,1,0,'Facies infratemporalis alae majoris ossis sphenoidalis, lamina lateralis processus pterygoidei','Fovea pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','N. pterygoideus lateralis',''),(4,'M. pterygoideus medialis','Medial pterygoid muscle',1,1,0,'Fossa pterygoidea ossis sphenoidalis','Tuberositas pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','N. mandibularis','');
 /*!40000 ALTER TABLE `tbl_muscles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -142,4 +142,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-02 17:06:53
+-- Dump completed on 2014-02-02 22:56:58
