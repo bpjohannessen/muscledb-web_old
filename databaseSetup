@@ -1,10 +1,10 @@
 #! /bin/bash
 
-pass=""
+pass="$1"
 
 mysql -u root --password=$pass -e 'DROP DATABASE db_muscles'
 echo "Importing database:"
 mysql -u root --password=$pass -e 'create database db_muscles'
-mysql -u root --password=$pass db_muscles < ./db_muscles.sql 
+mysql -u root --password=$pass db_muscles < /vagrant/db_muscles.sql 
 
 echo "Done."
