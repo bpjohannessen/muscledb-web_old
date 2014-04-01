@@ -42,7 +42,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	$html .= '<h3 class="title"><b>Insertio:</b> muscleInsertio</h3>';
 	$html .= '<h3 class="title"><b>Function:</b> muscleFunctio</h3>';
 	$html .= '<h3 class="title"><b>Nerve:</b> muscleNerve</h3>';
-	$html .= '<br /><h4 class="title"><a href=index.html>New search</a></h4>';
+	$html .= '<br /><h4 class="title"><a href=index.php>New search</a></h4>';
 	
 	// Build Query
 	$query = 'SELECT * FROM tbl_muscles WHERE id = '.$search_string;
@@ -127,7 +127,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 		}
 		
 	} else {
-		header("Location: index.html");
+		header("Location: index.php");
 	}
 	
 	
