@@ -1,5 +1,7 @@
 #! /bin/bash
 
+# Andreas Mosti, 01.04.14
+
 pass="$1"
 
 mysql -u root --password=$pass -e 'DROP DATABASE db_muscles'

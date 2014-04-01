@@ -1,5 +1,8 @@
 #! /bin/bash
 
+
+# Andreas Mosti, 01.04.14
+
 function install() {
 sudo apt-get install -y $1 >/dev/null 2>&1 
     }

@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Andreas Mosti, 01.04.14
+
 Vagrant::Config.run do |config|
   config.vm.box = "muscldbVM"
 
