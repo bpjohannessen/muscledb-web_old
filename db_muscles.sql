@@ -95,7 +95,7 @@ CREATE TABLE `tbl_muscle_subsubgroups` (
 
 LOCK TABLES `tbl_muscle_subsubgroups` WRITE;
 /*!40000 ALTER TABLE `tbl_muscle_subsubgroups` DISABLE KEYS */;
-INSERT INTO `tbl_muscle_subsubgroups` (`id`, `lat_name`, `name`, `muscle_group`, `muscle_subgroup`, `explanation`) VALUES (1,'Muscles of the scalp and around the eye opening','','1','2','NULL'),(2,'Muscles of the nose opening','','1','2','NULL'),(3,'Muscles of the mouth opening','','1','2','NULL'),(4,'Muscles of the nose opening','','1','2','NULL'),(5,'Muscles of the ear opening','','1','2','');
+INSERT INTO `tbl_muscle_subsubgroups` (`id`, `lat_name`, `name`, `muscle_group`, `muscle_subgroup`, `explanation`) VALUES (1,'0','Muscles of the scalp and around the eye opening','1','2','NULL'),(2,'0','Muscles of the nose opening','1','2','NULL'),(3,'0','Muscles of the mouth opening','1','2','NULL'),(4,'0','Muscles of the nose opening','1','2','NULL'),(5,'0','Muscles of the ear opening','1','2','');
 /*!40000 ALTER TABLE `tbl_muscle_subsubgroups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-15  0:38:47
+-- Dump completed on 2014-04-15  1:14:43
