@@ -120,7 +120,7 @@ CREATE TABLE `tbl_muscles` (
   `comment` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,8 +129,33 @@ CREATE TABLE `tbl_muscles` (
 
 LOCK TABLES `tbl_muscles` WRITE;
 /*!40000 ALTER TABLE `tbl_muscles` DISABLE KEYS */;
-INSERT INTO `tbl_muscles` (`id`, `lat_name`, `name`, `muscle_group`, `muscle_subgroup`, `muscle_subsubgroup`, `origo`, `insertio`, `functio`, `nerve`, `comment`) VALUES (1,'M. temporalis','Temporal muscle',1,1,0,'Planum temporale, fascia temporalis','Processus coronoideus mandibulae','Elevation of the mandible; posterior fibers pulls the mandible backward','Nn. temporales profundi',''),(2,'M. masseter','Masseter muscle',1,1,0,'Arcus zygomaticus','Tuberositas masseterica mandibulae','Elevation of the mandible','N. mandibularis',''),(3,'M. pterygoideus lateralis','Lateral pterygoid muscle',1,1,0,'Facies infratemporalis alae majoris ossis sphenoidalis, lamina lateralis processus pterygoidei','Fovea pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','N. pterygoideus lateralis',''),(4,'M. pterygoideus medialis','Medial pterygoid muscle',1,1,0,'Fossa pterygoidea ossis sphenoidalis','Tuberositas pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','N. mandibularis','');
+INSERT INTO `tbl_muscles` (`id`, `lat_name`, `name`, `muscle_group`, `muscle_subgroup`, `muscle_subsubgroup`, `origo`, `insertio`, `functio`, `nerve`, `comment`) VALUES (1,'M. temporalis','Temporal muscle',1,1,0,'Planum temporale, fascia temporalis','Processus coronoideus mandibulae','Elevation of the mandible; posterior fibers pulls the mandible backward','1',''),(2,'M. masseter','Masseter muscle',1,1,0,'Arcus zygomaticus','Tuberositas masseterica mandibulae','Elevation of the mandible','2',''),(3,'M. pterygoideus lateralis','Lateral pterygoid muscle',1,1,0,'Facies infratemporalis alae majoris ossis sphenoidalis, lamina lateralis processus pterygoidei','Fovea pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','3',''),(4,'M. pterygoideus medialis','Medial pterygoid muscle',1,1,0,'Fossa pterygoidea ossis sphenoidalis','Tuberositas pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','2',''),(5,'Venter occipitalis m. occipitofrontalis','Occpitalis muscle',1,2,1,'Linea nuchalis superior','Galea aponeurotica','Lifting of the eyebrows and the upper eyelids; produces horizontal wrinkles of the forehead; facial expression of astonishment','4',''),(6,'Venter frontalis m. occipitofrontalis','Frontalis muscle',1,2,1,'Galea aponeurotica','Skin of the eyebrow','','5',''),(7,'M. corrugator supercilii','Corrugator supercilii muscle',1,2,1,'Glabella, margo supraorbitalis','Skin of the eyebrow','Pulls the skin of the eyebrows downward and medially; produces vertical wrinkles of the forehead; expression of the \"thinker\"','5',''),(8,'Pars orbitalis m. orbicularis oculi','Pars orbitalis',1,2,1,'Lig. palpebrale mediale','Lig. palpebrale mediale','Acts as sphincter','5',''),(9,'Pars palpebralis m. orbicularis oculi','Pars palpebralis',1,2,1,'Lig. palpebrale mediale','Lig. palpebrale laterale','Closes the eyelid','5',''),(10,'Pars lacrimalis m. orbicularis oculi','Pars lacrimalis',1,2,1,'Os lacrimale','Lacrimal sac','Expands the lacrimal sac','5','');
 /*!40000 ALTER TABLE `tbl_muscles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_nerves`
+--
+
+DROP TABLE IF EXISTS `tbl_nerves`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_nerves` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `lat_name` text NOT NULL,
+  `name` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_nerves`
+--
+
+LOCK TABLES `tbl_nerves` WRITE;
+/*!40000 ALTER TABLE `tbl_nerves` DISABLE KEYS */;
+INSERT INTO `tbl_nerves` (`id`, `lat_name`, `name`) VALUES (1,'Nn. temporales profundi','Deep temporal nerves'),(2,'N. mandibularis','Mandibular nerve'),(3,'N. pterygoideus lateralis','Lateral pterygoid nerve'),(4,'N. auricularis posterior','Posterior auricular nerve'),(5,'N. facialis','Facial nerve');
+/*!40000 ALTER TABLE `tbl_nerves` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -142,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-02 22:56:58
+-- Dump completed on 2014-04-15  0:38:47
