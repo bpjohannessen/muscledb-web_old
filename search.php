@@ -83,7 +83,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	} else {
 
 		// Format No Results Output
-		$output = str_replace('urlString', 'javascript:void(0);', $html);
+		$output = str_replace('urlString', 'index.php', $html);
 		$output = str_replace('nameString', '<b>No Results Found.</b>', $output);
 		$output = str_replace('<h4>nameEngString</h4>', '', $output);
 		$output = str_replace('functionString', 'Sorry :(', $output);
