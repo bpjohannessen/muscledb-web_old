@@ -50,6 +50,11 @@ table {
 a {
 	outline: none;
 	text-decoration: none;
+	color: #616161;
+	text-decoration: underline;
+}
+a:hover {
+	color: #000;
 }
 /******************************************************************
 Print Styles
@@ -175,8 +180,8 @@ h6 {
 Main CSS
 ******************************************************************/
 div#main {
-	width: 360px;
-	margin: 200px auto 20px auto;
+	width: 400px; /* 360px originally! */
+	margin: 50px auto 20px auto;
 }
 .title {
 	line-height: 1.2em;
@@ -276,3 +281,8 @@ ul#results li:hover h3, ul#results li:hover h4  {
 	color: #3b3b3b;
 	font-weight: bold;
 }
+
+/*
+ CSS for nerve list
+*/
+ul#nerve

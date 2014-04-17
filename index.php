@@ -35,6 +35,9 @@
 		<div class="icon"></div>
 		<h1 class="title">Muscle search</h1>
 		<h5 class="title">(searches through muscles and shows details)</h5>
+		<h5 class="title"><a href="muscle.php">Show all muscles</a></h5>
+		<h5 class="title"><a href="nerve.php">Show all nerves</a></h5>
+		<h5 class="title"><a href="about.php">About</a></h5>
 
 		<!-- Main Input -->
 		<input type="text" id="search" autocomplete="off">

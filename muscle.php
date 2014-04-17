@@ -1,150 +1,200 @@
 <?php
 
 /************************************************
-	The Search PHP File
+	This file shows the muscle's details.
+	I.e. Latin name, English name, origo, insertio,
+	functio, image, etc.
 ************************************************/
 
 
-/************************************************
-	MySQL Connect
-************************************************/
+// MySQL connection
 
 // Credentials
 require_once("db_cred.php");
 
 //	Connection
-global $tutorial_db;
+global $db;
 
-$tutorial_db = new mysqli();
-$tutorial_db->connect($dbhost, $dbuser, $dbpass, $dbname);
-$tutorial_db->set_charset("utf8");
+$db = new mysqli();
+$db->connect($dbhost, $dbuser, $dbpass, $dbname);
+$db->set_charset("utf8");
 
 //	Check Connection
-if ($tutorial_db->connect_errno) {
-    printf("Connect failed: %s\n", $tutorial_db->connect_error);
+if ($db->connect_errno) {
+    printf("Connect failed: %s\n", $db->connect_error);
     exit();
 }
 
-// Get Search
+// The search string is $_GET['m'] and is escaped
 $search_string = preg_replace("/[^A-Za-z0-9]/", " ", $_GET['m']);
-$search_string = $tutorial_db->real_escape_string($search_string);
+$search_string = $db->real_escape_string($search_string);
 
-// Check Length More Than One Character
+// Check if the search string actually exists
 if (strlen($search_string) >= 1 && $search_string !== ' ') {
 
+	// This is what's being printed. Values and placeholders will be replaced later on when required. It will eventually be printed as $output
 	$html  =  '';
 	$html .= '<div class="icon"></div>';
 	$html .= '<h2 class="title">Muscle details</h2>';
 	$html .= '<h1 class="title">muscleLatName</h1>';
-	$html .= '<h3 class="title" style="font-style: italic;">muscleEngName</h3>';
-	$html .= 'placeHolderCategory';
-	$html .= '<h3 class="title"><b>Origo:</b> muscleOrigo</h3>';
+	$html .= '<h4 class="title"><a href="index.php">New search</a></h4>';
+	$html .= '<h3 class="title" style="font-style: italic; margin-top: 10px;">muscleEngName</h3>';
+	$html .= 'placeholder_Category';
+	$html .= '<h3 class="title" style="margin-top: 10px;"><b>Origo:</b> muscleOrigo</h3>';
 	$html .= '<h3 class="title"><b>Insertio:</b> muscleInsertio</h3>';
 	$html .= '<h3 class="title"><b>Function:</b> muscleFunctio</h3>';
 	$html .= '<h3 class="title"><b>Nerve:</b> muscleNerve</h3>';
-	$html .= '<br /><h4 class="title"><a href=index.php>New search</a></h4>';
+	$html .= 'placeholder_Image';
+
 	
-	// Build Query
-	$query = 'SELECT * FROM tbl_muscles WHERE id = '.$search_string;
+	// SQL query towards tbl_muscles table
+	$musclesql = 'SELECT * FROM tbl_muscles WHERE id = '.$search_string;
 	
 	// Do Search
-	$result = $tutorial_db->query($query);
-	while($results = $result->fetch_array()) {
-		$result_array[] = $results;
+	$musclequery = $db->query($musclesql);
+	while($muscleresult = $musclequery->fetch_array()) {
+		$musclearray[] = $muscleresult;
 	}
 
 	// Check If We Have Results
-	if (isset($result_array)) {
-		foreach ($result_array as $result) {
+	if (isset($musclearray)) {
+		foreach ($musclearray as $muscleresult) {
 
-			// Create simpler variable names from the query
-			$display_latname = $result['lat_name'];
-			$display_engname = $result['name'];
-			$groupID = $result['muscle_group'];
-			$subgroupID = $result['muscle_subgroup'];
-			$display_origo = $result['origo'];
-			$display_insertio = $result['insertio'];
-			$display_functio = $result['functio'];
-			$display_nerve = $result['nerve'];
+			// Create simpler variable names from the query			
+			$muscle_latname = $muscleresult['lat_name'];
+			$muscle_engname = $muscleresult['name'];
+			$muscle_origo = $muscleresult['origo'];
+			$muscle_insertio = $muscleresult['insertio'];
+			$muscle_functio = $muscleresult['functio'];
+			$muscle_image = $muscleresult['image'];
+			$muscle_group = $muscleresult['muscle_group'];
+			$muscle_subgroup = $muscleresult['muscle_subgroup'];
+			$muscle_subsubgroup = $muscleresult['muscle_subsubgroup'];
+
+			
+			// Get information about the nerve from tbl_nerves. All muscles have nerves, so there's no check if a nerve is in the table
+			
+			// SQL query towards tbl_nerves table
+			$nervesql = 'SELECT * FROM tbl_nerves WHERE id = '.$muscleresult['nerve'];
+			
+			// Do search
+			$nervequery = $db->query($nervesql);
+			$nerveresult = $nervequery->fetch_array();
+			
+			// Make easier variables
+			$nerve_id = $nerveresult['id'];
+			$nerve_latname = $nerveresult['lat_name'];
+			$nerve_name = $nerveresult['name'];
+			
+			// This is what us being printed with link to the nerve
+			$nervehtml = '<a href="nerve.php?n='.$nerve_id.'">'.$nerve_latname.' ('.$nerve_name.')</a>';
 			
 
 			// Insert Name, English Name, Origo, Insertio, Functio and Nerve Innervation
-			$output = str_replace('muscleLatName', $display_latname, $html);
-			$output = str_replace('muscleEngName', $display_engname, $output);
-			$output = str_replace('muscleOrigo', $display_origo, $output);
-			$output = str_replace('muscleInsertio', $display_insertio, $output);
-			$output = str_replace('muscleFunctio', $display_functio, $output);
-			$output = str_replace('muscleNerve', $display_nerve, $output);
+			$output = str_replace('muscleLatName', $muscle_latname, $html);
+			$output = str_replace('muscleEngName', $muscle_engname, $output);
+			$output = str_replace('muscleOrigo', $muscle_origo, $output);
+			$output = str_replace('muscleInsertio', $muscle_insertio, $output);
+			$output = str_replace('muscleFunctio', $muscle_functio, $output);
+			$output = str_replace('muscleNerve', $nervehtml, $output);
 			
 			// Check which group, subgroup, subsubcgroup the muscle is assigned. Replace number from table and show the real result
 			
-			// First: Replace group (because all muscles are assigned a group!)
+			// First: Replace group (because _all_ muscles are assigned a group!)
 			
 			// Build query
-			$queryGroup = 'SELECT * FROM tbl_muscle_groups WHERE id = '.$groupID;
+			$musclegroupsql = 'SELECT * FROM tbl_muscle_groups WHERE id = '.$muscle_group;
 			
 			// Do query
-			$resultGroup = $tutorial_db->query($queryGroup);
-			$resultsGroup = $resultGroup->fetch_array();
+			$musclegroupquery = $db->query($musclegroupsql);
+			$musclegroupresult = $musclegroupquery->fetch_array();
 			
 			// Create simpler variable name from the query
-			$display_group_latname = $resultsGroup['lat_name'];
-			$display_group_name = $resultsGroup['name'];
+			$musclegroup_latname = $musclegroupresult['lat_name'];
+			$musclegroup_name = $musclegroupresult['name'];
 			
 			// Start creating output for the placeHolderCategory
 			$group  = '';
-			$group .= '<h3 class="title" style="font-style: italic;">'.$display_group_latname.' ('.$display_group_name.')</h3>';
+			$group .= '<h3 class="title" style="font-style: italic;">'.$musclegroup_latname.' ('.$musclegroup_name.')</h3>';
 			
 			// Check if muscle has subgroup
 			
-			if($subgroupID >= 1) {
+			if($muscle_subgroup >= 1) {
 				
 				// Build query
-				$querySub = 'SELECT * FROM tbl_muscle_subgroups WHERE id = '.$subgroupID;
+				$musclesubgroupsql = 'SELECT * FROM tbl_muscle_subgroups WHERE id = '.$muscle_subgroup;
 				
 				// Do query
-				$resultSubGroup = $tutorial_db->query($querySub);
-				$resultsSubGroup = $resultSubGroup->fetch_array();
+				$musclesubgroupquery = $db->query($musclesubgroupsql);
+				$musclesubgroupresult = $musclesubgroupquery->fetch_array();
 				
 				// Create simpler variable names from the query
-				$display_subgroup_latname = $resultsSubGroup['lat_name'];
-				$display_subgroup_name = $resultsSubGroup['name'];
+				$muscle_subgroup_latname = $musclesubgroupresult['lat_name'];
+				$muscle_subgroup_name = $musclesubgroupresult['name'];
 				
-				$group .= '<h3 class="title" style="font-style: italic;">'.$display_subgroup_latname.' ('.$display_subgroup_name.')</h3>';
-								
-			} else {
-				echo "No subgroup!";
+				$group .= '<h3 class="title" style="font-style: italic;">'.$muscle_subgroup_latname.' ('.$muscle_subgroup_name.')</h3>';
+				
+				// Check if muscle has subsubgroup and replace ID with group name
+				
+				if($muscle_subsubgroup >= 1) {
+					
+					// Build query
+					$musclesubsubgroupsql = 'SELECT * FROM tbl_muscle_subsubgroups WHERE id = '.$muscle_subsubgroup;
+					
+					// Do query
+					$musclesubsubgroupquery = $db->query($musclesubsubgroupsql);
+					$musclesubsubgroupresult = $musclesubsubgroupquery->fetch_array();
+					
+					// Create simpler variable names from the query where it applies
+					$muscle_subsubgroup_latname = $musclesubsubgroupresult['lat_name'];
+					$muscle_subsubgroup_name = $musclesubsubgroupresult['name'];
+					
+					if($muscle_subsubgroup_latname != 0 && $muscle_subsubgroup_name != 0) {
+						$group .= '<h3 class="title" style="font-style: italic;">'.$muscle_subsubgroup_latname.' ('.$muscle_subsubgroup_name.')</h3>';
+					} elseif($muscle_subsubgroup_latname != 0 && $muscle_subsubgroup_name == 0) {
+						$group .= '<h3 class="title" style="font-style: italic;">'.$muscle_subsubgroup_latname.'</h3>';
+					} elseif($muscle_subsubgroup_latname == 0) {
+						$group .= '<h3 class="title" style="font-style: italic;">'.$muscle_subsubgroup_name.'</h3>';
+					}
+										
+				}
+				
+				// Replace placeHolderCategory with group output
+				$output = str_replace('placeholder_Category', $group, $output);
+				
+				// Check if the muscle has a image in the table, and check if the file exists and insert it
+				$imagepath = './resources/images/muscles/'.$muscle_image;
+				if(strlen($muscle_image) >= 1 && $muscle_image !='0' && file_exists($imagepath)) {
+					
+					// Print picture
+					$imagedata = getimagesize($imagepath);
+					$imagewidth = $imagedata[0];
+					
+					// If image width is > 300 px, resize! 
+					if($imagewidth>300) $imagewidth = 300;
+					$image = '<p align="left" style="margin-top: 20px; margin-left: 35px;"><a href="'.$imagepath.'"><img src='.$imagepath.' width="'.$imagewidth.'"></a></p>';
+					$output = str_replace('placeholder_Image', $image, $output);
+					
+				} else {
+					$output = str_replace('placeholder_Image', '', $output);
+				}
+												
 			}
-			
-			
-			
-			
-			
-			// Replace placeHolderCategory with group output
-			$output = str_replace('placeHolderCategory', $group, $output);
-			
-
+		
 		}
 		
 	} else {
 		header("Location: index.php");
 	}
 	
-	
 } else {
 	$output  =  '';
 	$output .= '<div class="icon"></div>';
 	$output .= '<h1 class="title">Muscle details</h1>';
-	$output .= '<h5 class="err">No muscle specified!</h5>';
+	$output .= '<h5 class="err">No muscle specified! <a href="index.php">Go back!</a></h5>';
+	$output .= 'All muscles will be listed her (feature to come)';
 }
-
-/************************************************
-	Search Functionality
-************************************************/
-
-
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -165,12 +215,9 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 </head>
 <body>
 
-
 	<div id="main">
-
-		<?php echo $output; ?>
-		
+		<?php echo $output; ?>		
 	</div>
-
+	
 </body>
 </html>
