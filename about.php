@@ -35,8 +35,14 @@
 		<div class="icon"></div>
 		<h1 class="title">About</h1>
 		<p class="title">This site contains a real-time search for (mainly) skeletal muscles. It is created as a collaboration by one medical student and one computer engineer student.</p>
-		<p class="title"><b>Credits:</b><br> Bjørn-Petter JOHANNESSEN, idea, lead designer, lead programmer; <br>Andreas MOSTI, programming advisor, infrastructure, Vagrant, dbDump, the one who have a good answer to all problems</p>
-		<h2 class="title"><a href="index.php">Back to search</a></h2>
+		<p class="title" style="padding-top: 10px; padding-bottom: 10px; font-weight: bold;">The contributors to the project are:</p>
+                
+                <ul id="credits" class="title" style="padding-left: 30px;">
+                    <li><span class="bold">Bjørn-Petter JOHANNESSEN, stud.med.</span>, idea, lead designer, lead programmer;</li>
+                    <li><span class="bold">Andreas MOSTI, BSc</span>, programming advisor, infrastructure, Vagrant, dbDump, the one who have a good answer to all problems</li>
+                </ul>
+                
+                <h2 class="title"><a href="index.php">Back to search</a></h2>
 		<h5 class="title"><a href="muscle.php">Show all muscles</a></h5>
 		<h5 class="title"><a href="nerve.php">Show all nerves</a></h5>
 

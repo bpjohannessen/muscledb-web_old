@@ -25,6 +25,58 @@ if ($db->connect_errno) {
     exit();
 }
 
+//
+// Functions
+//
+
+function fetchmuscles($id, $subid=0, $subsubid=0) {
+    global $db;
+    global $output;
+
+    $sql = 'SELECT * FROM tbl_muscles WHERE muscle_group = '.$id;
+
+    if($subid!=0) $sql .= ' AND muscle_subgroup = '.$subid;
+    if($subsubid!=0) $sql.= ' AND muscle_subsubgroup = '.$subsubid;
+
+    $query = $db->query($sql);
+
+    while($muscleresult = $query->fetch_array()) {
+
+        $name = $muscleresult['lat_name'];
+        $id = $muscleresult['id'];
+
+        $output .= '<h3 class="title">-- <a href="muscle.php?m='.$id.'">'.$name.'</a></h3>';
+
+    }
+
+}
+
+function h1($title) {
+    global $output;
+    $output .= '<h1 class="title">'.$title.'</h1>';
+}
+
+function h2($title) {
+    global $output;
+    $output .= '<h2 class="title">'.$title.'</h2>';
+}
+
+function h3($title) {
+    global $output;
+    $output .= '<h3 class="title">'.$title.'</h3>';
+}
+
+function h4($title) {
+    global $output;
+    $output .= '<h4 class="title">'.$title.'</h4>';
+}
+
+function h5($title) {
+    global $output;
+    $output .= '<h5 class="title">'.$title.'</h5>';
+}
+
+
 // The search string is $_GET['m'] and is escaped
 $search_string = preg_replace("/[^A-Za-z0-9]/", " ", $_GET['m']);
 $search_string = $db->real_escape_string($search_string);
@@ -174,7 +226,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 					if($imagewidth>300) $imagewidth = 300;
 					$image = '<p align="left" style="margin-top: 20px; margin-left: 35px;"><a href="'.$imagepath.'"><img src='.$imagepath.' width="'.$imagewidth.'"></a></p>';
 					$output = str_replace('placeholder_Image', $image, $output);
-					
+
 				} else {
 					$output = str_replace('placeholder_Image', '', $output);
 				}
@@ -188,11 +240,111 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	}
 	
 } else {
+
 	$output  =  '';
 	$output .= '<div class="icon"></div>';
 	$output .= '<h1 class="title">Muscle details</h1>';
 	$output .= '<h5 class="err">No muscle specified! <a href="index.php">Go back!</a></h5>';
-	$output .= 'All muscles will be listed her (feature to come)';
+
+
+    #
+    # Generate output of categories. This is hardcoded by ID!
+    #
+/* FUCK THIS
+    $categories = array(
+        1 => "Mm. capitis",
+        2 => "Mm. colli",
+        3 => "Mm. thoracis",
+        4 => "Upper limb",
+        5 => "Lower limb",
+        6 => "Mm. abdominis"
+    );
+
+    $subcategories = array(
+        1 => array(
+            "Mm. masticatorii",
+            "Mm. faciei"
+        ),
+        2 => array(
+            "Derivates of the 1st visceral arch",
+            "Derivates of the 2nd visceral arch",
+            "Craniothoracal muscles",
+            "Straight muscles of the neck",
+            "Lateral muscles of the neck",
+            "Deep muscles of the neck",
+            "Diaphragma"
+        )
+    );
+
+    foreach($categories as $catid => $category) {
+        $output .= '<h1 class="title">'.$category.'</h1>';
+        foreach($subcategories[$catid] as $subcatid => $subcat) {
+            $output .= '<h2 class="title">-'.$subcat.'</h2>';
+            fetchmuscles($catid, $subcatid);
+        }
+    }
+*/
+    #
+    # Mm. capitis is ID 1. All muscles will be selected by this ID
+    #
+
+    h1('Mm. capitis');
+
+    #
+    # Mm. masticatorii is subgroup ID 1
+    #
+
+    $output .= '<h2 class="title">-Mm. masticatorii</h2>';
+    fetchmuscles(1,1,0);
+
+    $output .= '<h2 class="title">-Mm. faciei</h2>';
+    $output .= '<h2 class="title">-Facial muscles of the scalp and muscles around the eye opening</h2>';
+    fetchmuscles(1,2,1);
+
+    $output .= '<h2 class="title">-Muscles of the nose opening</h2>';
+    fetchmuscles(1,2,2);
+
+    $output .= '<h2 class="title">-Muscles of the mouth opening</h2>';
+    fetchmuscles(1,2,3);
+
+    $output .= '<h2 class="title">-Muscles of the ear opening</h2>';
+    fetchmuscles(1,2,4);
+
+    h1('Mm. colli');
+
+    h2('-Derivates of the 1st visceral arch');
+    fetchmuscles(2,3,0);
+
+    h2('-Derivates of the 2nd visceral arch');
+    fetchmuscles(2,4,0);
+
+    h2('-Craniothoracal muscles');
+    fetchmuscles(2,5,0);
+
+    h2('-Straight muscles of the neck');
+    fetchmuscles(2,6,0);
+
+    h2('-Lateral muscles of the neck');
+    fetchmuscles(2,7,0);
+
+    h2('-Deep muscles of the neck');
+    fetchmuscles(2,8,0);
+
+    h1('Mm. thoracis');
+
+    h2('-Superficial muscles of the thorax');
+    fetchmuscles(3,9,0); # fix
+
+    h2('-Superficial muscles of the back');
+    fetchmuscles(3,10,0); # fix
+
+    h1('Muscles of the upper limb');
+    h2('-Muscles of the shoulder girdle');
+    fetchmuscles(4,12,0);
+    
+    h2('-Muscles of the arm');
+    fetchmuscles(4,13,8);
+
 }
 ?>
 <!DOCTYPE HTML>

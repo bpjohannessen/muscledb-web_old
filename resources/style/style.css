@@ -283,6 +283,15 @@ ul#results li:hover h3, ul#results li:hover h4  {
 }
 
 /*
- CSS for nerve list
+ CSS for credits
 */
-ul#nerve
+ul#credits, li#credits {
+        list-style-type: square;
+        font-family: Verdana, Arial, sans-serif;
+	line-height: 1.6em;
+	color: #616161;
+	font-size: 10px;
+}
+span.bold {
+    font-weight: bold;
+}
