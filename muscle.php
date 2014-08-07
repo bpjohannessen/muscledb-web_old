@@ -29,7 +29,7 @@ if ($db->connect_errno) {
 // Functions
 //
 
-function fetchmuscles($id, $subid=0, $subsubid=0) {
+function fetchmuscles($id, $subid=0, $subsubid=0,$subsubsubid=0) {
     global $db;
     global $output;
 
@@ -37,6 +37,7 @@ function fetchmuscles($id, $subid=0, $subsubid=0) {
 
     if($subid!=0) $sql .= ' AND muscle_subgroup = '.$subid;
     if($subsubid!=0) $sql.= ' AND muscle_subsubgroup = '.$subsubid;
+    if($subsubsubid!=0) $sql.=' AND muscle_subsubsubgroup = '.$subsubsubid;
 
     $query = $db->query($sql);
 
@@ -336,14 +337,22 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     fetchmuscles(3,9,0); # fix
 
     h2('-Superficial muscles of the back');
-    fetchmuscles(3,10,0); # fix
+    fetchmuscles(3,16,0); # fix
 
     h1('Muscles of the upper limb');
     h2('-Muscles of the shoulder girdle');
     fetchmuscles(4,12,0);
     
     h2('-Muscles of the arm');
+    h2('--Muscles of the anterior compartment');
     fetchmuscles(4,13,8);
+    
+    h2('--Muscles of the posterior compartment');
+    fetchmuscles(4,13,9);
+    
+    h2('-Muscles of the forearm');
+    h2('--1st layer');
+    fetchmuscles(4,14,10,1);
 
 }
 ?>
