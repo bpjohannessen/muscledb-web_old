@@ -27,7 +27,7 @@ do
 
 done 
 
-echo display_errors = On >> /etc/php5/apache2/php.ini
+echo "display_errors = On" >> /etc/php5/apache2/php.ini
 
 echo "Setting up muscle database..."
 /vagrant/databaseSetup $pass >/dev/null 2>&1
