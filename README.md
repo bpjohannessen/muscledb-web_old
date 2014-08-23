@@ -7,7 +7,7 @@ To try it in a isolated virtual machine using [Vagrant](https://www.vagrantup.co
 
     git clone https://github.com/bpjohannessen/muscledb
     cd muscledb
-    echo myPassword > mysqlpw.txt
+    echo "myPassword" > mysqlpw.txt
     nano db_cred.php # Add database password
     vagrant up
 
