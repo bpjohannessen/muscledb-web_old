@@ -6,7 +6,7 @@ Real-time searchable database for skeletal muscles. Includes muscle name in Lati
 To try it in a isolated virtual machine using [Vagrant](https://www.vagrantup.com/):
 
     git clone https://github.com/bpjohannessen/muscledb
-    cd muscledb
+    cd /vagrant/
     echo "myPassword" > mysqlpw.txt
     nano db_cred.php # Add database password
     vagrant up
