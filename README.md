@@ -15,8 +15,8 @@ Then simply navigate to http://localhost:8080
 
 The database can also be packed in a [Docker](https://www.docker.com/) container: 
 
-	docker run --name muscledb -p 3306 -e MYSQL_DATABASE=db_muscles -e MYSQL_ROOT_PASSWORD=<password> -d mysql
-	docker run -it -v /path/to/sql:/opt/ --link muscledb:mysql --rm mysql sh -c 'exec mysql -	h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD" db_muscles < /opt/db_muscles.sql'
+	docker run --name muscledb -e MYSQL_DATABASE=db_muscles -e MYSQL_ROOT_PASSWORD=<password> -d mysql
+	docker run -it --link muscledb:mysql --rm -v /vagrant:/opt/ mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD" db_muscles < /opt/db_muscles.sql'
 
 
 Disclaimer
