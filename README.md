@@ -13,7 +13,7 @@ To try it in a isolated virtual machine using [Vagrant](https://www.vagrantup.co
 
 Then simply navigate to http://localhost:8080
 
-muscledb can also be packed in a [Docker](https://www.docker.com/) container. Follow [this guide](https://github.com/bpjohannessen/muscledb/blob/master/docker.md) 
+muscledb can also be packed in a [Docker](https://www.docker.com/) container. Follow [this guide.](https://github.com/bpjohannessen/muscledb/blob/master/docker.md) 
 
 Disclaimer
 -----------
