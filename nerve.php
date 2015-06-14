@@ -123,7 +123,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<!-- Load CSS -->
-	<link href="resources/style/style.css" rel="stylesheet" type="text/css" />
+	<link href="./resources/style/style.css" rel="stylesheet" type="text/css" />
 	<!-- Load Fonts -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold" type="text/css" />
 	<!-- Load jQuery library -->
