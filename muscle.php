@@ -167,15 +167,33 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
             $arteryhtml = '<a href="artery.php?n='.$artery_id.'">'.$artery_latname.' ('.$artery_name.')</a>';
 
             /////
-			
 
-			// Insert Name, English Name, Origo, Insertio, Functio and Nerve Innervation
+            // Get information about the vein from tbl_veins. All muscles have veins, so there's no check if a vein is in the table
+
+            // SQL query towards tbl_veins table
+            $veinssql = 'SELECT * FROM tbl_veins WHERE id = '.$muscleresult['vein'];
+
+            // Do search
+            $veinquery = $db->query($veinssql);
+            $veinresult = $veinquery->fetch_array();
+
+            // Make easier variables
+            $vein_id = $veinresult['id'];
+            $vein_latname = $veinresult['lat_name'];
+            $vein_name = $veinresult['name'];
+
+            // This is what us being printed with link to the vein
+            $veinhtml = '<a href="vein.php?n='.$vein_id.'">'.$vein_latname.' ('.$vein_name.')</a>';
+
+
+            // Insert Name, English Name, Origo, Insertio, Functio and Nerve Innervation
 			$output = str_replace('muscleLatName', $muscle_latname, $html);
 			$output = str_replace('muscleEngName', $muscle_engname, $output);
 			$output = str_replace('muscleOrigo', $muscle_origo, $output);
 			$output = str_replace('muscleInsertio', $muscle_insertio, $output);
 			$output = str_replace('muscleFunctio', $muscle_functio, $output);
             $output = str_replace('muscleArtery', $arteryhtml, $output);
+            $output = str_replace('muscleVein', $veinhtml, $output);
 			$output = str_replace('muscleNerve', $nervehtml, $output);
 			
 			// Check which group, subgroup, subsubcgroup the muscle is assigned. Replace number from table and show the real result
