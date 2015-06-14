@@ -4,11 +4,11 @@
 # Andreas Mosti, 01.04.14
 
 function install() {
-sudo apt-get install -y $1 >/dev/null 2>&1 
+sudo apt-get install -y $1 >/dev/null 2>&1
     }
 
 programs="build-essential vim curl git make apache2 php5 mysql-server php5-mysql
-php5-mysqlnd php-mdb2-driver-mysql mysql-libs" 
+php5-mysqlnd php-mdb2-driver-mysql mysql-libs"
 
 pass=$(</vagrant/mysqlpw.txt)
 
@@ -18,14 +18,14 @@ pass=$(</vagrant/mysqlpw.txt)
 
 echo "Installing web-server essentials..."
 
-sudo apt-get update >/dev/null 2>&1 
+sudo apt-get update >/dev/null 2>&1
 
 for program in $programs
-do 
-    echo "Current package: $program" 
-    install $program 
+do
+    echo "Current package: $program"
+    install $program
 
-done 
+done
 
 echo "display_errors = On" >> /etc/php5/apache2/php.ini
 
@@ -35,6 +35,6 @@ echo "Setting up muscle database..."
 echo "Symlincing /www folder to /Vagrant folder..."
 
 rm -rf /var/www
-ln -fs /vagrant /var/www 
+ln -fs /vagrant /var/www
 
-echo "All done! go 'vagrant ssh'" 
+echo "All done! go 'vagrant ssh'"
