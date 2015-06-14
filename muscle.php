@@ -29,7 +29,7 @@ if ($db->connect_errno) {
 // Functions
 //
 
-function fetchmuscles($id, $subid=0, $subsubid=0,$subsubsubid=0) {
+function fetchmuscles($id, $subid=0, $subsubid=0, $subsubsubid=0) {
     global $db;
     global $output;
 
@@ -40,15 +40,18 @@ function fetchmuscles($id, $subid=0, $subsubid=0,$subsubsubid=0) {
     if($subsubsubid!=0) $sql.=' AND muscle_subsubsubgroup = '.$subsubsubid;
 
     $query = $db->query($sql);
-
+    
+    $output .= '<ul id="credits" style="margin-left:70px;">';
     while($muscleresult = $query->fetch_array()) {
 
         $name = $muscleresult['lat_name'];
         $id = $muscleresult['id'];
 
-        $output .= '<h3 class="title">-- <a href="muscle.php?m='.$id.'">'.$name.'</a></h3>';
+        #$output .= '<h3 class="title">-- <a href="muscle.php?m='.$id.'">'.$name.'</a></h3>';
+        $output .= '<li><a href="muscle.php?m='.$id.'">'.$name.'</a></li>';
 
     }
+    $output .= '</ul>';
 
 }
 
@@ -96,6 +99,8 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	$html .= '<h3 class="title" style="margin-top: 10px;"><b>Origo:</b> muscleOrigo</h3>';
 	$html .= '<h3 class="title"><b>Insertio:</b> muscleInsertio</h3>';
 	$html .= '<h3 class="title"><b>Function:</b> muscleFunctio</h3>';
+    $html .= '<h3 class="title"><b>Artery:</b> muscleArtery</h3>';
+    $html .= '<h3 class="title"><b>Vein:</b> muscleVein</h3>';
 	$html .= '<h3 class="title"><b>Nerve:</b> muscleNerve</h3>';
 	$html .= 'placeholder_Image';
 
@@ -141,6 +146,27 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 			
 			// This is what us being printed with link to the nerve
 			$nervehtml = '<a href="nerve.php?n='.$nerve_id.'">'.$nerve_latname.' ('.$nerve_name.')</a>';
+
+            /////
+
+            // Get information about the artery from tbl_arteries. All muscles have arteries, so there's no check if a artery is in the table
+
+			// SQL query towards tbl_arteries table
+			$arteriessql = 'SELECT * FROM tbl_arteries WHERE id = '.$muscleresult['artery'];
+
+            // Do search
+            $arteryquery = $db->query($arteriessql);
+            $arteryresult = $arteryquery->fetch_array();
+
+            // Make easier variables
+            $artery_id = $arteryresult['id'];
+            $artery_latname = $arteryresult['lat_name'];
+            $artery_name = $arteryresult['name'];
+
+            // This is what us being printed with link to the artery
+            $arteryhtml = '<a href="artery.php?n='.$artery_id.'">'.$artery_latname.' ('.$artery_name.')</a>';
+
+            /////
 			
 
 			// Insert Name, English Name, Origo, Insertio, Functio and Nerve Innervation
@@ -149,6 +175,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 			$output = str_replace('muscleOrigo', $muscle_origo, $output);
 			$output = str_replace('muscleInsertio', $muscle_insertio, $output);
 			$output = str_replace('muscleFunctio', $muscle_functio, $output);
+            $output = str_replace('muscleArtery', $arteryhtml, $output);
 			$output = str_replace('muscleNerve', $nervehtml, $output);
 			
 			// Check which group, subgroup, subsubcgroup the muscle is assigned. Replace number from table and show the real result
@@ -245,7 +272,8 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	$output  =  '';
 	$output .= '<div class="icon"></div>';
 	$output .= '<h1 class="title">Muscle details</h1>';
-	$output .= '<h5 class="err">No muscle specified! <a href="index.php">Go back!</a></h5>';
+	#$output .= '<h5 class="err">No muscle specified!';
+        $output .= '<h5 class="err"><a href="index.php">Go back to search</a></h5>';
 
 
     #
@@ -295,40 +323,40 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     # Mm. masticatorii is subgroup ID 1
     #
 
-    $output .= '<h2 class="title">-Mm. masticatorii</h2>';
+    h2('Mm. masticatorii');
     fetchmuscles(1,1,0);
 
-    $output .= '<h2 class="title">-Mm. faciei</h2>';
-    $output .= '<h2 class="title">-Facial muscles of the scalp and muscles around the eye opening</h2>';
+    h2('Mm. faciei</h2>');
+    h3('Facial muscles of the scalp and muscles around the eye opening');
     fetchmuscles(1,2,1);
 
-    $output .= '<h2 class="title">-Muscles of the nose opening</h2>';
+    h3('Muscles of the nose opening');
     fetchmuscles(1,2,2);
 
-    $output .= '<h2 class="title">-Muscles of the mouth opening</h2>';
+    h3('Muscles of the mouth opening');
     fetchmuscles(1,2,3);
 
-    $output .= '<h2 class="title">-Muscles of the ear opening</h2>';
+    h3('Muscles of the ear opening');
     fetchmuscles(1,2,4);
 
     h1('Mm. colli');
 
-    h2('-Derivates of the 1st visceral arch');
+    h2('Derivates of the 1st visceral arch');
     fetchmuscles(2,3,0);
 
-    h2('-Derivates of the 2nd visceral arch');
+    h2('Derivates of the 2nd visceral arch');
     fetchmuscles(2,4,0);
 
-    h2('-Craniothoracal muscles');
+    h2('Craniothoracal muscles');
     fetchmuscles(2,5,0);
 
-    h2('-Straight muscles of the neck');
+    h2('Straight muscles of the neck');
     fetchmuscles(2,6,0);
 
-    h2('-Lateral muscles of the neck');
+    h2('Lateral muscles of the neck');
     fetchmuscles(2,7,0);
 
-    h2('-Deep muscles of the neck');
+    h2('Deep muscles of the neck');
     fetchmuscles(2,8,0);
 
     h1('Mm. thoracis');
@@ -344,14 +372,14 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     fetchmuscles(4,12,0);
     
     h2('-Muscles of the arm');
-    h2('--Muscles of the anterior compartment');
+    h3('--Muscles of the anterior compartment');
     fetchmuscles(4,13,8);
     
-    h2('--Muscles of the posterior compartment');
+    h3('--Muscles of the posterior compartment');
     fetchmuscles(4,13,9);
     
     h2('-Muscles of the forearm');
-    h2('--1st layer');
+    h3('--1st layer');
     fetchmuscles(4,14,10,1);
 
 }
@@ -366,7 +394,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<!-- Load CSS -->
-	<link href="resources/style/style.css" rel="stylesheet" type="text/css" />
+	<link href="../memcard/lib/css/style.css" rel="stylesheet" type="text/css" />
 	<!-- Load Fonts -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold" type="text/css" />
 	<!-- Load jQuery library -->
@@ -377,8 +405,67 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 <body>
 
 	<div id="main">
-		<?php echo $output; ?>		
-	</div>
+
+		<?php
+        // Finally, print all the output!
+        echo $output;
+        ?>
+
+        <?php /*
+            <hr>
+            <ul id="credits" style="margin-left:15px;">
+<li style="font-size: 12pt; font-weight: bold; margin-bottom: 5px;">Mm. capitis</li>
+	<ul id="credits" style="margin-left:15px;">
+	<li style="font-size:10pt; font-weight: bold; margin-bottom: 5px;">Mm. masticatorii</li>
+		<ul id="credits" style="margin-left:15px;">
+                <li><a href="#">M. temporalis</a></li>
+                <li><a href="#">M. masseter</a></li>
+                <li><a href="#">M. pterygoideus lateralis</a></li>
+                <li><a href="#">M. pterygoideus medialis</a></li>
+		</ul>
+	<li style="font-size:10pt; font-weight: bold; margin-top: 5px; margin-bottom: 5px;">Mm. faciei</li>
+		<ul id="credits" style="margin-left:15px;">
+		<li style="font-weight: bold;">Muscles of the scalp and muscles around the eye opening</li>
+			<ul id="credits" style="margin-left:15px;">
+			<li>Venter occipitalis m. occipitofrontalis</li>
+			<li>Venter frontalis m. occipitofrontalis</li>
+			<li>M. corrugator supercilii</li>
+			<li>Pars orbitalis m. orbicularis oculi</li>
+			<li>Pars palpebralis m. orbicularis oculi</li>
+			<li>Pars lacrimalis m. orbicularis oculi</li>
+			</ul>
+		<li style="font-weight: bold;">Muscles of the nose opening</li>
+			<ul id="credits" style="margin-left:15px;">
+			<li>M. nasalis</li>
+			<li>M. levator labii superioris alaeque nasi</li>
+			</ul>
+		<li style="font-weight: bold;">Muscles of the mouth opening</li>
+			<ul id="credits" style="margin-left:15px;">
+			<li>M. orbicularis oris</li>
+			<li>M. levator anguli oris</li>
+			<li>M. levator labii superioris</li>
+			<li>M. zygomaticus major</li>
+			<li>M. zygomaticus minor</li>
+			<li>M. risorius</li>
+			<li>M. buccinator</li>
+			<li>M. depressor anguli oris</li>
+			<li>M. depressor labii inferioris</li>
+			<li>M. mentalis</li>
+			</ul>
+		<li style="font-weight: bold;">Muscles of the ear opening</li>
+			<ul id="credits" style="margin-left:15px;">
+			<li>M. auricularis anterior</li>
+			<li>M. auricularis superior</li>
+			<li>M. auricularis posterior</li>
+			</ul>
+		</ul>
+	</ul>
+</ul>
+*/
+?>
+            
+            
+        </div>
 	
 </body>
 </html>
