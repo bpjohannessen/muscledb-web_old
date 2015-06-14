@@ -296,41 +296,8 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 
     #
     # Generate output of categories. This is hardcoded by ID!
-    #
-/* FUCK THIS
-    $categories = array(
-        1 => "Mm. capitis",
-        2 => "Mm. colli",
-        3 => "Mm. thoracis",
-        4 => "Upper limb",
-        5 => "Lower limb",
-        6 => "Mm. abdominis"
-    );
+    # !! The design is to be updated
 
-    $subcategories = array(
-        1 => array(
-            "Mm. masticatorii",
-            "Mm. faciei"
-        ),
-        2 => array(
-            "Derivates of the 1st visceral arch",
-            "Derivates of the 2nd visceral arch",
-            "Craniothoracal muscles",
-            "Straight muscles of the neck",
-            "Lateral muscles of the neck",
-            "Deep muscles of the neck",
-            "Diaphragma"
-        )
-    );
-
-    foreach($categories as $catid => $category) {
-        $output .= '<h1 class="title">'.$category.'</h1>';
-        foreach($subcategories[$catid] as $subcatid => $subcat) {
-            $output .= '<h2 class="title">-'.$subcat.'</h2>';
-            fetchmuscles($catid, $subcatid);
-        }
-    }
-*/
     #
     # Mm. capitis is ID 1. All muscles will be selected by this ID
     #
@@ -412,7 +379,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<!-- Load CSS -->
-	<link href="../memcard/lib/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="./resources/style/style.css" rel="stylesheet" type="text/css" />
 	<!-- Load Fonts -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold" type="text/css" />
 	<!-- Load jQuery library -->
