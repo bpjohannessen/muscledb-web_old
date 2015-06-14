@@ -11,10 +11,10 @@
 	#
 	# Source of fix: http://www.validatethis.co.uk/news/fix-bad-value-x-ua-compatible-once-and-for-all/
 	#
-	if (isset($_SERVER['HTTP_USER_AGENT']) && 
+	if (isset($_SERVER['HTTP_USER_AGENT']) &&
     (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false))
         header('X-UA-Compatible: IE=edge,chrome=1');
-    ?>	
+    ?>
 	<title>About</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
@@ -39,7 +39,7 @@
         <h5 class="title"><a href="nerve.php">Show all nerves</a></h5>
 		<p class="title" style="padding-top: 10px;">This site contains a real-time search for (mainly) skeletal muscles. It is created as a collaboration by one medical student and one computer engineer.</p>
 		<p class="title" style="padding-top: 10px; padding-bottom: 10px; font-weight: bold;">The contributors to the project are:</p>
-                
+
         <ul id="credits" class="title" style="padding-left: 30px;">
             <li><span class="bold">Bjørn-Petter JOHANNESSEN, medical student</span>, idea, lead designer, lead programmer;</li>
             <li><span class="bold">Andreas MOSTI, BSc</span>, programming advisor, infrastructure, Vagrant, dbDump, the one who have a good answer to all problems.</li>
