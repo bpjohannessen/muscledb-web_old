@@ -364,8 +364,28 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     fetchmuscles(4,13,9);
     
     h2('-Muscles of the forearm');
-    h3('--1st layer');
+    h3('--Anterior compartment of the forearm');
+    h3('---1st layer');
     fetchmuscles(4,14,10,1);
+
+    h3('---2nd layer');
+    fetchmuscles(4,14,10,2);
+
+    h3('---3rd layer');
+    fetchmuscles(4,14,10,3);
+
+    h3('---4th layer');
+    fetchmuscles(4,14,10,4);
+
+    h3('--Lateral part of the posterior compartment of the forearm');
+    fetchmuscles(4,14,11);
+
+    h3('--Posterior compartment of the forearm');
+    h3('---1st layer');
+    fetchmuscles(4,14,12,5);
+
+    h3('---2nd layer');
+    fetchmuscles(4,14,12,6);
 
 }
 ?>
