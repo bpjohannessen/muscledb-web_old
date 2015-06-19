@@ -387,6 +387,16 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     h3('---2nd layer');
     fetchmuscles(4,14,12,6);
 
+    h3('--Muscles of the hand');
+    h3('--Muscles of the thumb (hyperthenar muscles)');
+    fetchmuscles(4,15,13);
+
+    h3('--Muscles of the little finger (hypothenar muscles)');
+    fetchmuscles(4,15,14);
+
+    h3('--Muscles of the middle group of the hand');
+    fetchmuscles(4,15,15);
+
 }
 ?>
 <!DOCTYPE HTML>
