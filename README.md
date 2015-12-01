@@ -1,7 +1,7 @@
 muscledb
 ========
 
-Real-time searchable database for skeletal muscles. Includes muscle name in Latin and English. Origin, insertion (origo et insertio) and function is also searchable.
+This project is still in development. It is a real-time searchable database for skeletal muscles which includes muscle name in Latin and English. Origin, insertion (origo et insertio) and function is also searchable.
 
 To try it in a isolated virtual machine using [Vagrant](https://www.vagrantup.com/):
 
@@ -13,7 +13,7 @@ To try it in a isolated virtual machine using [Vagrant](https://www.vagrantup.co
 
 Then simply navigate to http://localhost:8080
 
-muscledb can also be packed in a [Docker](https://www.docker.com/) container. Follow [this guide.](https://github.com/bpjohannessen/muscledb/blob/master/docker.md) 
+muscledb can also be packed in a [Docker](https://www.docker.com/) container. Follow [this guide.](https://github.com/bpjohannessen/muscledb/blob/master/docker.md)
 
 Disclaimer
 -----------
