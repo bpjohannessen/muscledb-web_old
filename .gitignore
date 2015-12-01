@@ -33,3 +33,5 @@ nbproject/project.properties
 
 .vagrant/machines/default/virtualbox/index_uuid
 db_cred.php
+
+db_cred.php
