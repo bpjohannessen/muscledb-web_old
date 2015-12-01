@@ -41,7 +41,7 @@ function fetchmuscles($id, $subid=0, $subsubid=0, $subsubsubid=0) {
 
     $query = $db->query($sql);
     
-    $output .= '<ul id="credits" style="margin-left:70px;">';
+    $output .= '<ul class="muscle">';
     while($muscleresult = $query->fetch_array()) {
 
         $name = $muscleresult['lat_name'];
@@ -82,7 +82,8 @@ function h5($title) {
 
 
 // The search string is $_GET['m'] and is escaped
-$search_string = preg_replace("/[^A-Za-z0-9]/", " ", $_GET['m']);
+// @ to escape the 'undefined index'
+$search_string = preg_replace("/[^A-Za-z0-9]/", " ", @$_GET['m']);
 $search_string = $db->real_escape_string($search_string);
 
 // Check if the search string actually exists
@@ -311,7 +312,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     h2('Mm. masticatorii');
     fetchmuscles(1,1,0);
 
-    h2('Mm. faciei</h2>');
+    h2('Mm. faciei');
     h3('Facial muscles of the scalp and muscles around the eye opening');
     fetchmuscles(1,2,1);
 
@@ -352,9 +353,22 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     h2('-Superficial muscles of the back');
     fetchmuscles(3,16,0); # fix
 
+    h2('-Deep muscles of the back');
+    fetchmuscles(3,20,0);
+
+    // Diaphragma needs to be treated separately # fix
+    h2('-Diaphragma');
+
+    // Fetch muscles of the upper limb (upper extremity)
+
     h1('Muscles of the upper limb');
+
+    // Fetch muscles of the shoulder girdle
+
     h2('-Muscles of the shoulder girdle');
     fetchmuscles(4,12,0);
+
+    // Fetch muscles of the arm (brachium)
     
     h2('-Muscles of the arm');
     h3('--Muscles of the anterior compartment');
@@ -362,6 +376,8 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     
     h3('--Muscles of the posterior compartment');
     fetchmuscles(4,13,9);
+
+    // Fetch muscles of the forearm (antebrachium)
     
     h2('-Muscles of the forearm');
     h3('--Anterior compartment of the forearm');
@@ -387,6 +403,8 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     h3('---2nd layer');
     fetchmuscles(4,14,12,6);
 
+    // Fetch muscles of the hand (manus)
+
     h3('--Muscles of the hand');
     h3('--Muscles of the thumb (hyperthenar muscles)');
     fetchmuscles(4,15,13);
@@ -396,6 +414,72 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 
     h3('--Muscles of the middle group of the hand');
     fetchmuscles(4,15,15);
+
+    // Fetch abdominal muscles
+
+    h1('Mm. abdominis');
+    h2('-Anterior abdominal muscles');
+    fetchmuscles(6,21,0);
+    h2('-Lateral abdominal muscles');
+    fetchmuscles(6,22,0);
+    h2('-Posterior abdominal muscles');
+    fetchmuscles(6,23,0);
+
+    // Fetch deep muscles of the back
+
+
+    // Fetch muscles of the lower limb / lower extremity
+
+    h1('Muscles of the lower limb');
+
+    // Fetch muscles of the pelvic girdle ("hip")
+
+    h2('-Muscles of the pelvic girdle');
+    h2('--Anterior pelvic girdle muscles');
+    fetchmuscles(5,16,16);
+
+    h2('--Posterior pelvic girdle muscles');
+    fetchmuscles(5,16,17);
+
+    // Fetch muscles of the thigh (femur)
+
+    h2('-Muscles of the thigh');
+    h2('--Anterior compartment');
+    fetchmuscles(5,17,18);
+
+    h2('--Medial compartment');
+    fetchmuscles(5,17,19);
+
+    h2('--Posterior compartment');
+    fetchmuscles(5,17,20);
+
+    // Fetch muscles of the leg (crus)
+
+    h2('-Muscles of the leg');
+    h2('--Anterior compartment');
+    fetchmuscles(5,18,21);
+
+    h2('-Lateral compartment');
+    fetchmuscles(5,18,22);
+
+    h2('-Posterior compartment');
+    fetchmuscles(5,18,23);
+
+    // Fetch muscles of the the foot (pedis)
+
+    h1('-Muscles of the foot');
+
+    h2('--Dorsal surface');
+    fetchmuscles(5,19,24);
+    h2('--Ventral surface');
+    h2('---Muscles of the great toe');
+    fetchmuscles(5,19,25,7);
+    h2('---Muscles of the little toe');
+    fetchmuscles(5,19,25,8);
+    h2('--Middle group');
+    fetchmuscles(5,19,26);
+
+
 
 }
 ?>
