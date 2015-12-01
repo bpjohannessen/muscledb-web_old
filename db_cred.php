@@ -2,5 +2,8 @@
 /************************************************
 	The MySQL credentials file
 ************************************************/
-require_once("../../../dbauth.muscledb.php");
+$dbhost = "localhost";
+$dbname = "db_muscles";
+$dbuser = "root";
+$dbpass = "";
 ?>
