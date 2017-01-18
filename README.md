@@ -1,6 +1,8 @@
 muscledb
 ========
 
+Demo: http://fettenajs.com/med/Code/muscledb/
+
 This project is still in development. It is a real-time searchable database for skeletal muscles which includes muscle name in Latin and English. Origin, insertion (origo et insertio) and function is also searchable.
 
 To try it in a isolated virtual machine using [Vagrant](https://www.vagrantup.com/):
