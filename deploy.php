@@ -50,7 +50,8 @@ $commands = array(
     'git submodule sync',
     'git submodule update',
     'git submodule status',
-    'echo `date` >> ../counter.txt'
+    'echo `date` >> ../counter.txt',
+    '/home/bp/www/fettenajs.com/build.sh'
 );
 
 // Run the commands for output
