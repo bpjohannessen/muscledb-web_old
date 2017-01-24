@@ -43,13 +43,13 @@ if(!isset($_SESSION['hasVisited'])){
 
 // The commands
 $commands = array(
-    'echo $PWD',
-    'whoami',
-    'git pull',
-    'git status',
-    'git submodule sync',
-    'git submodule update',
-    'git submodule status',
+//    'echo $PWD',
+//    'whoami',
+//    'git pull',
+//    'git status',
+//    'git submodule sync',
+ //   'git submodule update',
+  //  'git submodule status',
     'echo `date` >> ../counter.txt',
     '/home/bp/www/fettenajs.com/build.sh'
 );
