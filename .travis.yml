@@ -12,10 +12,9 @@ before_install:
   -in deploy_rsa.enc -out deploy_rsa -d
 
 script:
- - cat ~./ssh/id_rsa.pub
  - cd MuscleWeb
  - dotnet restore
  - dotnet publish
- - ssh -oStrictHostKeyChecking=no bp@fettenajs.com
+ - ssh  bp@fettenajs.com
  - ls
  - exit
