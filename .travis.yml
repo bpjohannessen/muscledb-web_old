@@ -1,16 +1,17 @@
 language: csharp
-
 matrix:
   include:
-    - os: linux # Ubuntu 14.04
-      dist: trusty
-      sudo: required
-      dotnet: 1.0.0-preview2-003121
-
+  - os: linux
+    dist: trusty
+    sudo: required
+    dotnet: 1.0.0-preview2-003121
 script:
- - cd MuscleWeb
- - dotnet restore
- - dotnet publish
- - ssh -oStrictHostKeyChecking=no bp@fettenajs.com
- - ls
- - exit
+- cd MuscleWeb
+- dotnet restore
+- dotnet publish
+- ssh -oStrictHostKeyChecking=no bp@fettenajs.com
+- ls
+- exit
+before_install:
+- openssl aes-256-cbc -K $encrypted_93abba7592f0_key -iv $encrypted_93abba7592f0_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
