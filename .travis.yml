@@ -11,3 +11,6 @@ script:
  - cd MuscleWeb
  - dotnet restore
  - dotnet publish
+ - ssh bp@fettenajs.com
+ - ls
+ - exit
