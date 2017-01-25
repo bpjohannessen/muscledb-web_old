@@ -22,14 +22,16 @@ script:
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
 - ssh bp@fettenajs.com
-- sudo systemctl stop kestrel-muscleweb.service
-- exit
-- cd MuscleWeb
-- dotnet restore
-- dotnet publish
-- echo $TRAVIS_BUILD_DIR
-- rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/bpjohannesen/muscledb-web/MuscleWeb/bin/debug/netcoreapp1.1/publish bp@fettenajs.com:/home/bp/www/fettenajs.com/public_html/med/muscledb-web/MuscleWeb/bin/debug/netcoreapp1.1/publish
-- ssh bp@fettenajs.com
-- sudo systemctl start kestrel-muscleweb.service
 - ls
 - exit
+#- sudo systemctl stop kestrel-muscleweb.service
+#- exit
+#- cd MuscleWeb
+#- dotnet restore
+#- dotnet publish
+#- echo $TRAVIS_BUILD_DIR
+#- rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/bpjohannesen/muscledb-web/MuscleWeb/bin/debug/netcoreapp1.1/publish bp@fettenajs.com:/home/bp/www/fettenajs.com/public_html/med/muscledb-web/MuscleWeb/bin/debug/netcoreapp1.1/publish
+#- ssh bp@fettenajs.com
+#- sudo systemctl start kestrel-muscleweb.service
+#- ls
+#- exit
