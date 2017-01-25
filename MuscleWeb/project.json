@@ -43,7 +43,8 @@
     "include": [
       "wwwroot",      
       "appsettings.json",
-      "web.config"
+      "web.config",
+      "database.sql"
     ]
   },
 
