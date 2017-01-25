@@ -19,6 +19,7 @@ before_deploy:
 - ssh-add /tmp/deploy_rsa
 
 script:
+- ssh bp@fettenajs.com
 - cd MuscleWeb
 - dotnet restore
 - dotnet publish
