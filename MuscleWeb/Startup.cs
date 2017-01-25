@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Data.Sqlite;
+using DbReader;
 
 namespace MuscleWeb
 {
@@ -37,7 +38,9 @@ namespace MuscleWeb
 
         private IDbConnection CreateConnection()
         {
-            SqliteConnection connection = new SqliteConnection("");
+            SqliteConnection connection = new SqliteConnection("data source = muscles.db");
+            //DbReaderOptions.WhenReading<long>
+
             connection.Open();
             return connection;
         }

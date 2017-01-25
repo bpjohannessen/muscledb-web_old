@@ -7,7 +7,7 @@ public class MuscleResponse
     /// Gets or sets the Id (non-medical) of the muscle.
     /// </summary>
     /// <returns></returns>
-    public int Id {get;set;}
+    public long Id {get;set;}
     
     /// <summary>
     /// Gets or sets a description of the function of the muscle. 
