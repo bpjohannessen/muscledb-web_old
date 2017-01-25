@@ -8,6 +8,7 @@ matrix:
 addons:
   ssh_known_hosts: fettenajs.com
 before_deploy:
+- echo "Nå kjører vi med openssl +++"
 - openssl aes-256-cbc -K $encrypted_51c466c92341_key -iv $encrypted_51c466c92341_iv
   -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
