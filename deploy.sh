@@ -12,7 +12,7 @@ echo "Stopping kestrel"
 sudo systemctl stop kestrel-muscleweb.service
 exit'
 echo "Running rsync"
-rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/bpjohannessen/muscledb-web/MuscleWeb/bin/debug/netcoreapp1.1/publish bp@fettenajs.com:/home/bp/www/fettenajs.com/public_html/med/muscledb-web/MuscleWeb/bin/debug/netcoreapp1.1/publish
+rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/MuscleWeb/bin/debug/netcoreapp1.1/publish bp@fettenajs.com:/home/bp/www/fettenajs.com/public_html/med/muscledb-web/MuscleWeb/bin/debug/netcoreapp1.1/publish
 ssh bp@fettenajs.com '
 echo "Starting kestrel"
 sudo systemctl start kestrel-muscleweb.service
