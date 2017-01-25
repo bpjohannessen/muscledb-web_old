@@ -21,9 +21,10 @@ script:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
-- ssh bp@fettenajs.com
-- ls
-- exit
+- ssh bp@fettenajs.com '
+ls
+exit'
+- echo `date`
 #- sudo systemctl stop kestrel-muscleweb.service
 #- exit
 #- cd MuscleWeb
