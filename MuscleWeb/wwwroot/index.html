@@ -2,51 +2,13 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            function search() {
-                var query_value = $('input#searchterm').val();
-                $('b#search-string').html(query_value);
-                if (query_value !== '') {
-                    $.ajax({
-                        type: "GET",
-                        url: "/api/muscles",
-                        data: { query: query_value },
-                        cache: false,
-                        success: function (json) {
-                            alert(json);
-                            $("ul#results").html(html);
-                        }
-                    });
-                } return false;
-            }
-
-
-            $("input#searchterm").live("keyup", function (e) {
-                // Set Timeout
-                clearTimeout($.data(this, 'timer'));
-
-                // Set Search String
-                var search_string = $(this).val();
-
-                // Do Search
-                if (search_string == '') {
-                    $("ul#results").fadeOut();
-                    $('h4#results-text').fadeOut();
-                } else {
-                    $("ul#results").fadeIn();
-                    $('h4#results-text').fadeIn();
-                    $(this).data('timer', setTimeout(search, 100));
-                };
-            });
-        });
-    </script>
+    <script src="js/index.js"></script>
+    
 </head>
 
 <body>
 
-    <input type="text" name="searchterm">
+    <input type="text" id="searchterm">
 
 </body>
 

@@ -2,7 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (web)",
+            "name": "Debug Client",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5000/index.html",
+            "webRoot": "${workspaceRoot}/wwwroot/"
+        },
+        {
+            "name": "Debug Server",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
@@ -31,12 +38,6 @@
             "sourceFileMap": {
                 "/Views": "${workspaceRoot}/Views"
             }
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command.pickProcess}"
         }
     ]
 }
