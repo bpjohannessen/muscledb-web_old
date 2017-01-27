@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/index.js"></script>
@@ -8,29 +7,17 @@
 </head>
 
 <body>
-
-    <div class="container" style="width: 320px; text-align: center; margin-top: 40px;">
-        <!-- Put all CSS in one file! -->
+    <div id="main" class="container">
         <div class="row">
             <div class="two-half column">
-
                 <!-- input textbox for searchterm -->
-                <input type="text" id="searchterm" placeholder="Search" autocomplete="off" style="width: 320px;">
+                <input type="text" id="searchterm" placeholder="Search" autocomplete="off">
                 <!-- table where JS appends the search result -->
-                <table id="muskel" style="width: 320px;">
-                    <!-- <thead>
-                        <tr>
-                            <!-- <th>IDx</th>
-                            <th>ID</th> -->
-                            <!-- <th>Name</th> -->
-                            <!-- <th>Functio</th> -->
-                       <!-- </tr>
-                    </thead> -->
+                <table id="muscleResults">
                     <tbody id="tbodyappend">
                         <!-- JS will append data here -->
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
