@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    $("input#searchterm").focus();
+
     $("table#muscleResults").hide();
 
     function search(query_value) {
@@ -25,16 +27,21 @@ $(document).ready(function () {
         // Set Search String
         var search_string = $(this).val();
 
-        // Do Search
-
-        
+        // Do Search        
         if (search_string == '') {
             // If search_string is empty, ie, if you delete the text in input#searchterm after a search, table#muscleResults will fade and disappear
             $("table#muscleResults").fadeOut();
             //$('input#searchterm').fadeOut(); // Fix duplicates
         } else {
             $("table#muscleResults").show();
-            $(this).data('timer', setTimeout(search(search_string), 100));
+            $(this).data('timer', setTimeout(search(search_string), 100)); // Needs some adjustment?
         };
     });
+
+    $(document).on("keydown", "#searchterm", function(e) {
+        // When a key is pressed, <tbody id="tbodyappend"> is removed (removes all results before querying again)
+        $("tbody#tbodyappend").empty();
+    });
+
+
 });
