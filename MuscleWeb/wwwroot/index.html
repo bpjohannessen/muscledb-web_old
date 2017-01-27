@@ -1,26 +1,26 @@
 <html>
-
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/index.js"></script>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
 
 </head>
-
 <body>
-
+    <!-- input textbox for searchterm -->
     <input type="text" id="searchterm">
-
-    <table id="muskel" border="1">
+    <!-- table where JS appends the search result -->
+    <table id="muskel" class="u-full-width">
+         <thead>
         <tr>
             <th>IDx</th>
             <th>ID</th>
             <th>Name</th>
             <th>Functio</th>
         </tr>
-        <!-- JS will append data here -->
+         </thead>
+         <tbody id="tbodyappend">
+                     <!-- JS will append data here -->
+         </tbody>
     </table>
-
 </body>
-
 </html>

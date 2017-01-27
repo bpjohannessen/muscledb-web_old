@@ -4,7 +4,7 @@ $(document).ready(function () {
         //var query_value = $('input#searchterm').val();
         $.getJSON("api/muscles", { searchterm: query_value }, function (json) {
 
-            var $table = $("table#muskel");
+            var $table = $("tbody#tbodyappend");
             $.each(json, function (idx, muscleitem) {
                 $table.append("<tr><td>"+ idx +"</td><td>"+ muscleitem.id +"</td><td><a href='#/muscle/"+ muscleitem.id +"'>"+ muscleitem.name +"</a></td><td>"+ muscleitem.functio +"</td></tr>");
                 // Add something $table.FadeOut()?
