@@ -1,12 +1,15 @@
 $(document).ready(function () {
 
+    $("table#muskel").hide();
+
     function search(query_value) {
         //var query_value = $('input#searchterm').val();
         $.getJSON("api/muscles", { searchterm: query_value }, function (json) {
 
             var $table = $("tbody#tbodyappend");
             $.each(json, function (idx, muscleitem) {
-                $table.append("<tr><td>"+ idx +"</td><td>"+ muscleitem.id +"</td><td><a href='#/muscle/"+ muscleitem.id +"'>"+ muscleitem.name +"</a></td><td>"+ muscleitem.functio +"</td></tr>");
+                //$table.append("<tr><td>"+ idx +"</td><td>"+ muscleitem.id +"</td><td><a href='#/muscle/"+ muscleitem.id +"'>"+ muscleitem.name +"</a></td><td>"+ muscleitem.functio +"</td></tr>");
+                $table.append("<tr><td id='hoverski'>" + muscleitem.name + "</td></tr>");
                 // Add something $table.FadeOut()?
             });
         });
@@ -23,12 +26,14 @@ $(document).ready(function () {
         var search_string = $(this).val();
 
         // Do Search
+
+        
         if (search_string == '') {
+            // If search_string is empty, ie, if you delete the text in input#searchterm after a search, table#muskel will fade and disappear
             $("table#muskel").fadeOut();
-            $('h4#results-text').fadeOut();
+            $('input#searchterm').fadeOut(); // Fix duplicates
         } else {
-            $("table#muskel").fadeIn();
-            $('h4#results-text').fadeIn();
+            $("table#muskel").show();
             $(this).data('timer', setTimeout(search(search_string), 100));
         };
     });

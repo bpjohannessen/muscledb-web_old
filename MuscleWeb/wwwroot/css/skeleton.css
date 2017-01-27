@@ -416,3 +416,9 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+/* TODO */
+
+td#hoverski:hover {
+  background-color:#33C3F0; /* TODO Change color */
+}

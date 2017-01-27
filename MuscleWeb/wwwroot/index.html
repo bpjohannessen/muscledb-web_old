@@ -9,23 +9,23 @@
 
 <body>
 
-    <div class="container" style="width: 50%; text-align: center;">
+    <div class="container" style="width: 320px; text-align: center; margin-top: 40px;">
         <!-- Put all CSS in one file! -->
         <div class="row">
             <div class="two-half column">
 
                 <!-- input textbox for searchterm -->
-                <input type="text" id="searchterm">
+                <input type="text" id="searchterm" placeholder="Search" autocomplete="off" style="width: 320px;">
                 <!-- table where JS appends the search result -->
-                <table id="muskel" class="u-full-width">
-                    <thead>
+                <table id="muskel" style="width: 320px;">
+                    <!-- <thead>
                         <tr>
-                            <th>IDx</th>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Functio</th>
-                        </tr>
-                    </thead>
+                            <!-- <th>IDx</th>
+                            <th>ID</th> -->
+                            <!-- <th>Name</th> -->
+                            <!-- <th>Functio</th> -->
+                       <!-- </tr>
+                    </thead> -->
                     <tbody id="tbodyappend">
                         <!-- JS will append data here -->
                     </tbody>
