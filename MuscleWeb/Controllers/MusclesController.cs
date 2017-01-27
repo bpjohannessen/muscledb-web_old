@@ -19,8 +19,16 @@ public class MusclesController : Controller
     /// <returns>A list of <see name="MuscleResponse"/> that matches the given <paramref name="searchTerm"/>.</returns>
     public IEnumerable<MuscleResponse> Get(string searchTerm)
     {        
-        string sql = $"SELECT * FROM musclesearch WHERE musclesearch MATCH @searchTerm";
-        var result = connection.Read<MuscleResponse>(sql, new {searchTerm = searchTerm});
-        return result;
+        string sql = null;
+        if (string.IsNullOrEmpty(searchTerm))
+        {
+            sql = "SELECT * FROM musclesearch";  
+            return connection.Read<MuscleResponse>(sql);           
+        }
+        else
+        {
+            sql = $"SELECT * FROM musclesearch WHERE musclesearch MATCH @searchTerm";
+            return connection.Read<MuscleResponse>(sql, new {searchTerm = searchTerm});
+        }                
     }
 }
