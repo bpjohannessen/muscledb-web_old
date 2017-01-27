@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("table#muskel").hide();
+    $("table#muscleResults").hide();
 
     function search(query_value) {
         //var query_value = $('input#searchterm').val();
@@ -9,14 +9,14 @@ $(document).ready(function () {
             var $table = $("tbody#tbodyappend");
             $.each(json, function (idx, muscleitem) {
                 //$table.append("<tr><td>"+ idx +"</td><td>"+ muscleitem.id +"</td><td><a href='#/muscle/"+ muscleitem.id +"'>"+ muscleitem.name +"</a></td><td>"+ muscleitem.functio +"</td></tr>");
-                $table.append("<tr><td id='hoverski'>" + muscleitem.name + "</td></tr>");
+                $table.append("<tr><td id='muscleResultItem'><a href='#" + muscleitem.id + "'><div>" + muscleitem.name + "</div></a></td></tr>");
                 // Add something $table.FadeOut()?
             });
         });
     }
 
     // Uncomment the next line to simulate a search without user input
-    //search("gluteus");
+    //search("flexio");
 
     $(document).on("keyup", "#searchterm", function (e) {
         // Set Timeout
@@ -29,11 +29,11 @@ $(document).ready(function () {
 
         
         if (search_string == '') {
-            // If search_string is empty, ie, if you delete the text in input#searchterm after a search, table#muskel will fade and disappear
-            $("table#muskel").fadeOut();
-            $('input#searchterm').fadeOut(); // Fix duplicates
+            // If search_string is empty, ie, if you delete the text in input#searchterm after a search, table#muscleResults will fade and disappear
+            $("table#muscleResults").fadeOut();
+            //$('input#searchterm').fadeOut(); // Fix duplicates
         } else {
-            $("table#muskel").show();
+            $("table#muscleResults").show();
             $(this).data('timer', setTimeout(search(search_string), 100));
         };
     });
