@@ -1,12 +1,19 @@
 $(document).ready(function () {
 
-    function search() {
-        var query_value = $('input#searchterm').val();
-        $.getJSON("api/muscles", {searchterm : query_value}, function(json){
-            alert(json);
+    function search(query_value) {
+        //var query_value = $('input#searchterm').val();
+        $.getJSON("api/muscles", { searchterm: query_value }, function (json) {
+
+            var $table = $("table#muskel");
+            $.each(json, function (idx, muscleitem) {
+                $table.append("<tr><td>"+ idx +"</td><td>"+ muscleitem.id +"</td><td><a href='#/muscle/"+ muscleitem.id +"'>"+ muscleitem.name +"</a></td><td>"+ muscleitem.functio +"</td></tr>");
+                // Add something $table.FadeOut()?
+            });
         });
     }
 
+    // Uncomment the next line to simulate a search without user input
+    //search("gluteus");
 
     $(document).on("keyup", "#searchterm", function (e) {
         // Set Timeout
@@ -17,12 +24,12 @@ $(document).ready(function () {
 
         // Do Search
         if (search_string == '') {
-            $("ul#results").fadeOut();
+            $("table#muskel").fadeOut();
             $('h4#results-text').fadeOut();
         } else {
-            $("ul#results").fadeIn();
+            $("table#muskel").fadeIn();
             $('h4#results-text').fadeIn();
-            $(this).data('timer', setTimeout(search, 100));
+            $(this).data('timer', setTimeout(search(search_string), 100));
         };
     });
 });
