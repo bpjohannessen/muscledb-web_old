@@ -1,14 +1,5 @@
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
-CREATE TABLE `tbl_arteries` (
-  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
-,  `lat_name` text NOT NULL
-,  `name` text NOT NULL
-,  `parent` text NOT NULL
-,  UNIQUE (`id`)
-);
-INSERT INTO "tbl_arteries" VALUES(1,'Aa. temporales profundae','Deep temporal arteries','A. maxillaris, pars infratemporalis');
-INSERT INTO "tbl_arteries" VALUES(2,'Rr. pterygoideus a. maxillaris','Pterygoid branches of the maxillary artery','A. maxillaris');
 CREATE TABLE tbl_musclegroups (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, name text NOT NULL, lat_name text NOT NULL, parent_id INTEGER, explanation TEXT, FOREIGN KEY (parent_id) REFERENCES tbl_musclegroups (id));
 INSERT INTO "tbl_musclegroups" VALUES(126,'Muscles of the head','Mm. capitis',NULL,'Includes masticatoy and mimetic muscles, 1st and 2nd visceral arch');
 INSERT INTO "tbl_musclegroups" VALUES(127,'Muscles of the neck','Mm. colli',NULL,'Muscles of the neck');
@@ -75,7 +66,7 @@ INSERT INTO "tbl_musclegroups" VALUES(187,'Muscles of the little toe','',179,'')
 INSERT INTO "tbl_musclegroups" VALUES(188,'Middle group muscles of the foot','',179,'');
 CREATE TABLE tbl_muscles (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, lat_name text NOT NULL, name text NOT NULL, origo text NOT NULL, insertio text NOT NULL, functio text NOT NULL, nerve text NOT NULL, artery integer NOT NULL, vein integer NOT NULL, image text NOT NULL, comment text NOT NULL, image_color text NOT NULL, musclegroup_id INTEGER REFERENCES tbl_musclegroups (id), UNIQUE (id));
 INSERT INTO "tbl_muscles" VALUES(1,'M. temporalis','Temporal muscle','Planum temporale, fascia temporalis','Processus coronoideus mandibulae','Elevation of the mandible; posterior fibers pulls the mandible backward','1',1,2,'mtemporalis.png','','',132);
-INSERT INTO "tbl_muscles" VALUES(2,'M. masseter','Masseter muscle','Arcus zygomaticus','Tuberositas masseterica mandibulae','Elevation of the mandible','2',0,0,'mmasseter.png','','',132);
+INSERT INTO "tbl_muscles" VALUES(2,'M. masseter','Masseter muscle','Arcus zygomaticus','Tuberositas masseterica mandibulae','Elevation of the mandible','2',9,0,'mmasseter.png','','',132);
 INSERT INTO "tbl_muscles" VALUES(3,'M. pterygoideus lateralis','Lateral pterygoid muscle','Facies infratemporalis alae majoris ossis sphenoidalis, lamina lateralis processus pterygoidei','Fovea pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','3',2,2,'mpterygoideuslateralis.png','','',132);
 INSERT INTO "tbl_muscles" VALUES(4,'M. pterygoideus medialis','Medial pterygoid muscle','Fossa pterygoidea ossis sphenoidalis','Tuberositas pterygoidea mandibulae','Bilateral contractions pulls the mandible forward; unilateral contractions pushes the mandible laterally.','2',2,2,'mpterygoideusmedialis.png','','',132);
 INSERT INTO "tbl_muscles" VALUES(5,'Venter occipitalis m. occipitofrontalis','Occpitalis muscle','Linea nuchalis superior','Galea aponeurotica','Lifting of the eyebrows and the upper eyelids; produces horizontal wrinkles of the forehead; facial expression of astonishment','4',0,0,'venteroccpitalismoccipitofrontalis.png','','',155);
@@ -245,51 +236,6 @@ INSERT INTO "tbl_muscles" VALUES(173,'M. obliquus externus abdominis','Oblique e
 INSERT INTO "tbl_muscles" VALUES(174,'M. obliquus internus abdominis','Oblique internal abdominal muscle','Lig. inguinale lateral part, spina iliaca anterior superior, crista iliaca, fascia thoracolumbalis ','Costae X, XI et XII, linea alba ','Flexio trunci (bilateral contractions). Turns trunk to the same side (unilateral contractions) ','0',0,0,'mobliquusinternusabdominis.png','','',153);
 INSERT INTO "tbl_muscles" VALUES(175,'M. transversus abdominis','Transverse abdominal muscle','Lig. inguinale, spina iliaca anterior superior, crista iliaca, fascia thoracolumbalis, internal surfaces VII to XII ','Linea alba ','Increases intraabdominal pressure','0',0,0,'mtransversusabdominis.png','','',153);
 INSERT INTO "tbl_muscles" VALUES(176,'Mm. quadratus lumborum','Quadratus lumborum muscle','Lig. iliolumbale, crista iliaca ','Costa XII','Extensio trunci (bilateral contractions), lateroflexio trunci (unilateral contractions)','0',0,0,'mmquadratuslumborum.png','','',154);
-CREATE TABLE `tbl_nerves` (
-  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
-,  `lat_name` text NOT NULL
-,  `name` text NOT NULL
-,  `parent_nerve` varchar(255) NOT NULL
-);
-INSERT INTO "tbl_nerves" VALUES(1,'Nn. temporales profundi','Deep temporal nerves','N. mandibularis');
-INSERT INTO "tbl_nerves" VALUES(2,'N. mandibularis','Mandibular nerve','N. trigeminus');
-INSERT INTO "tbl_nerves" VALUES(3,'N. pterygoideus lateralis','Lateral pterygoid nerve','0');
-INSERT INTO "tbl_nerves" VALUES(4,'N. auricularis posterior','Posterior auricular nerve','0');
-INSERT INTO "tbl_nerves" VALUES(5,'N. facialis','Facial nerve','0');
-INSERT INTO "tbl_nerves" VALUES(6,'Rr. buccales n. facialis','Buccal branch of the facial nerve','0');
-INSERT INTO "tbl_nerves" VALUES(7,'Rr. zygomatici n. facialis','Zygomatic branches of the facial nerve','0');
-INSERT INTO "tbl_nerves" VALUES(8,'R. marginalis mandibularis n. facialis','Marginal mandibular branch of the facial nerve','0');
-INSERT INTO "tbl_nerves" VALUES(9,'Rr. temporales n. facialis','Temporal branches of the facial nerve','0');
-INSERT INTO "tbl_nerves" VALUES(10,'N. alveolaris inferior','Inferior alveolar nerve','');
-INSERT INTO "tbl_nerves" VALUES(11,'R. digastricus n. facialis','Digastric branch of the facial nerve','N. facialis');
-INSERT INTO "tbl_nerves" VALUES(12,'R. colli n. facialis','Cervical branch of the facial nerve','N. facialis');
-INSERT INTO "tbl_nerves" VALUES(13,'R. externus n. accessorii','External branch of accessory nerve','N. accessorius');
-INSERT INTO "tbl_nerves" VALUES(14,'Ansa cervicalis','Ansa cervicalis','');
-INSERT INTO "tbl_nerves" VALUES(15,'Plexus cervicalis et brachalis C3-6','Cervical and brachial plexus C3-6','');
-INSERT INTO "tbl_nerves" VALUES(16,'Plexus cervicalis','Cervical plexus','');
-INSERT INTO "tbl_nerves" VALUES(17,'R. ventralis C1','Ventral branch of C1','');
-INSERT INTO "tbl_nerves" VALUES(18,'Nn. pectorales (lateralis et medialis)','Lateral and medial pectoral nerve','');
-INSERT INTO "tbl_nerves" VALUES(19,'N. subclavius','Subclavian nerve','');
-INSERT INTO "tbl_nerves" VALUES(20,'N. thoracicus longus','Long thoracic nerve','');
-INSERT INTO "tbl_nerves" VALUES(21,'N. thoracodorsalis','Thoracodorsal nerve','');
-INSERT INTO "tbl_nerves" VALUES(22,'N. dorsalis scapulae','Dorsal scapular nerve','');
-INSERT INTO "tbl_nerves" VALUES(23,'Nn. intercostales','Intercostal nerves','');
-INSERT INTO "tbl_nerves" VALUES(24,'N. axillaris','Axillary nerve','');
-INSERT INTO "tbl_nerves" VALUES(25,'N. suprascapularis','Suprascapular nerve','');
-INSERT INTO "tbl_nerves" VALUES(26,'N. subscapularis','Subscapular nerve','');
-INSERT INTO "tbl_nerves" VALUES(27,'N. musculocutaneus','Musculocutaneous nerve','');
-INSERT INTO "tbl_nerves" VALUES(28,'Rr. musculares n. radialis','Muscular branches of the radial nerve','');
-INSERT INTO "tbl_nerves" VALUES(29,'Rr. musculares n. mediani','Muscular branches of the median nerve','');
-INSERT INTO "tbl_nerves" VALUES(30,'Rr. musculares n. ulnaris','Muscular branches of the ulnar nerve','');
-CREATE TABLE `tbl_veins` (
-  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
-,  `lat_name` text NOT NULL
-,  `name` text NOT NULL
-,  `parent` text NOT NULL
-,  UNIQUE (`id`)
-);
-INSERT INTO "tbl_veins" VALUES(1,'V. temporalis superficialis','Superficial temporal vein','V. retromandibularis');
-INSERT INTO "tbl_veins" VALUES(2,'Plexus pterygoideus','Pterygoid plexus','');
 PRAGMA writable_schema=ON;
 INSERT INTO sqlite_master(type,name,tbl_name,rootpage,sql)VALUES('table','musclesearch','musclesearch',0,'CREATE VIRTUAL TABLE musclesearch USING fts4(id, lat_name, name, origo, insertio, functio)');
 CREATE TABLE 'musclesearch_content'(docid INTEGER PRIMARY KEY, 'c0id', 'c1lat_name', 'c2name', 'c3origo', 'c4insertio', 'c5functio');
@@ -665,12 +611,81 @@ INSERT INTO "musclesearch_docsize" VALUES(169,X'0103030F0203');
 INSERT INTO "musclesearch_docsize" VALUES(170,X'010303040208');
 CREATE TABLE 'musclesearch_stat'(id INTEGER PRIMARY KEY, value BLOB);
 INSERT INTO "musclesearch_stat" VALUES(0,X'AA01AA01B904D904D906E7059609E2E501');
+CREATE TABLE 'tbl_muscles_nerves' ('muscle_id' INTEGER NOT NULL, 'nerve_id' INTEGER NOT NULL, PRIMARY KEY ('muscle_id', 'nerve_id'));
+CREATE TABLE 'tbl_muscles_arteries' ('muscle_id' INTEGER NOT NULL, 'arterie_id' INTEGER NOT NULL, PRIMARY KEY ('muscle_id', 'arterie_id'));
+CREATE TABLE 'tbl_muscles_veins' ('muscle_id' INTEGER NOT NULL, 'vein_id' INTEGER NOT NULL, PRIMARY KEY ('muscle_id', 'vein_id'));
+CREATE TABLE 'tbl_nerves' (
+  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
+,  `lat_name` text NOT NULL
+,  `name` text NOT NULL
+,'parent_id' varchar(255) NOT NULL
+);
+INSERT INTO "tbl_nerves" VALUES(1,'Nn. temporales profundi','Deep temporal nerves','N. mandibularis');
+INSERT INTO "tbl_nerves" VALUES(2,'N. mandibularis','Mandibular nerve','N. trigeminus');
+INSERT INTO "tbl_nerves" VALUES(3,'N. pterygoideus lateralis','Lateral pterygoid nerve','0');
+INSERT INTO "tbl_nerves" VALUES(4,'N. auricularis posterior','Posterior auricular nerve','0');
+INSERT INTO "tbl_nerves" VALUES(5,'N. facialis','Facial nerve','0');
+INSERT INTO "tbl_nerves" VALUES(6,'Rr. buccales n. facialis','Buccal branch of the facial nerve','0');
+INSERT INTO "tbl_nerves" VALUES(7,'Rr. zygomatici n. facialis','Zygomatic branches of the facial nerve','0');
+INSERT INTO "tbl_nerves" VALUES(8,'R. marginalis mandibularis n. facialis','Marginal mandibular branch of the facial nerve','0');
+INSERT INTO "tbl_nerves" VALUES(9,'Rr. temporales n. facialis','Temporal branches of the facial nerve','0');
+INSERT INTO "tbl_nerves" VALUES(10,'N. alveolaris inferior','Inferior alveolar nerve','');
+INSERT INTO "tbl_nerves" VALUES(11,'R. digastricus n. facialis','Digastric branch of the facial nerve','N. facialis');
+INSERT INTO "tbl_nerves" VALUES(12,'R. colli n. facialis','Cervical branch of the facial nerve','N. facialis');
+INSERT INTO "tbl_nerves" VALUES(13,'R. externus n. accessorii','External branch of accessory nerve','N. accessorius');
+INSERT INTO "tbl_nerves" VALUES(14,'Ansa cervicalis','Ansa cervicalis','');
+INSERT INTO "tbl_nerves" VALUES(15,'Plexus cervicalis et brachalis C3-6','Cervical and brachial plexus C3-6','');
+INSERT INTO "tbl_nerves" VALUES(16,'Plexus cervicalis','Cervical plexus','');
+INSERT INTO "tbl_nerves" VALUES(17,'R. ventralis C1','Ventral branch of C1','');
+INSERT INTO "tbl_nerves" VALUES(18,'Nn. pectorales (lateralis et medialis)','Lateral and medial pectoral nerve','');
+INSERT INTO "tbl_nerves" VALUES(19,'N. subclavius','Subclavian nerve','');
+INSERT INTO "tbl_nerves" VALUES(20,'N. thoracicus longus','Long thoracic nerve','');
+INSERT INTO "tbl_nerves" VALUES(21,'N. thoracodorsalis','Thoracodorsal nerve','');
+INSERT INTO "tbl_nerves" VALUES(22,'N. dorsalis scapulae','Dorsal scapular nerve','');
+INSERT INTO "tbl_nerves" VALUES(23,'Nn. intercostales','Intercostal nerves','');
+INSERT INTO "tbl_nerves" VALUES(24,'N. axillaris','Axillary nerve','');
+INSERT INTO "tbl_nerves" VALUES(25,'N. suprascapularis','Suprascapular nerve','');
+INSERT INTO "tbl_nerves" VALUES(26,'N. subscapularis','Subscapular nerve','');
+INSERT INTO "tbl_nerves" VALUES(27,'N. musculocutaneus','Musculocutaneous nerve','');
+INSERT INTO "tbl_nerves" VALUES(28,'Rr. musculares n. radialis','Muscular branches of the radial nerve','');
+INSERT INTO "tbl_nerves" VALUES(29,'Rr. musculares n. mediani','Muscular branches of the median nerve','');
+INSERT INTO "tbl_nerves" VALUES(30,'Rr. musculares n. ulnaris','Muscular branches of the ulnar nerve','');
+CREATE TABLE 'tbl_veins' (
+  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
+,  `lat_name` text NOT NULL
+,  `name` text NOT NULL
+,'parent_id' text NOT NULL
+,  UNIQUE (`id`)
+);
+INSERT INTO "tbl_veins" VALUES(1,'Cor','Heart','');
+INSERT INTO "tbl_veins" VALUES(2,'V. brachiocephalica','Brachiocephalic vein','1');
+INSERT INTO "tbl_veins" VALUES(3,'V. jugularis interna','Internal jugular vein','2');
+INSERT INTO "tbl_veins" VALUES(4,'V. retromandibularis','Retromandibular vein','3');
+INSERT INTO "tbl_veins" VALUES(5,'V. facialis','Facial vein','4');
+INSERT INTO "tbl_veins" VALUES(6,'V. facialis profunda','Deep facial vein','5');
+INSERT INTO "tbl_veins" VALUES(7,'Plexus pterygoideus','Pterygoid plexus','6');
+CREATE TABLE 'tbl_arteries' (
+  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
+,  `lat_name` text NOT NULL
+,  `name` text NOT NULL
+,'parent_id' INTEGER NOT NULL
+,  UNIQUE (`id`)
+);
+INSERT INTO "tbl_arteries" VALUES(1,'Aa. temporales profundae','Deep temporal arteries','A. maxillaris, pars infratemporalis');
+INSERT INTO "tbl_arteries" VALUES(2,'Cor','Heart',0);
+INSERT INTO "tbl_arteries" VALUES(3,'Arcus aortae','Aortic arch','');
+INSERT INTO "tbl_arteries" VALUES(4,'A. carotis communis','Common carotid artery',3);
+INSERT INTO "tbl_arteries" VALUES(5,'A. carotis externa','External carotid artery',4);
+INSERT INTO "tbl_arteries" VALUES(6,'A. maxillaris (around art. temporosomething something)','Maxillary artery around temporomandibular joint',5);
+INSERT INTO "tbl_arteries" VALUES(7,'A. maxillaris (fossa temporalis)','Maxillary artery in the temporal fossa / 2nd part',5);
+INSERT INTO "tbl_arteries" VALUES(8,'A. maxillaris (fossa pterygopalatina)','Maxillary artery in the pterygopalatine fossa',5);
+INSERT INTO "tbl_arteries" VALUES(9,'A. masseterica','Masseteric artery',7);
 DELETE FROM sqlite_sequence;
-INSERT INTO "sqlite_sequence" VALUES('tbl_arteries',2);
 INSERT INTO "sqlite_sequence" VALUES('tbl_musclegroups',188);
 INSERT INTO "sqlite_sequence" VALUES('tbl_muscles',176);
 INSERT INTO "sqlite_sequence" VALUES('tbl_nerves',30);
-INSERT INTO "sqlite_sequence" VALUES('tbl_veins',2);
+INSERT INTO "sqlite_sequence" VALUES('tbl_veins',7);
+INSERT INTO "sqlite_sequence" VALUES('tbl_arteries',9);
 CREATE VIEW view_grouptree AS SELECT * FROM 
 (
 WITH RECURSIVE tbl (
