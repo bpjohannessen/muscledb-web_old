@@ -6,7 +6,7 @@ function inputchanged() {
         //$("table#muscleResults").fadeOut();
         $("tbody#tbodynosearchterm").show();
 
-        $("tbody#tbodynosearchterm").fadeIn(300); //fadeIn(duration in ms) / fadeOut(duration in ms) default is 400 (ms)
+        $("tbody#tbodynosearchterm").fadeIn(300); //fadeIn(duration in ms) / fadeOut(duration in ms) default is 400 (ms)    
         $("tbody#tbodyappend").fadeOut(200);
         //$('input#searchterm').fadeOut(); // Fix duplicates
     } else {
