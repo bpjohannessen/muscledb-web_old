@@ -12,6 +12,7 @@ echo "Stopping kestrel"
 sudo systemctl stop kestrel-muscleweb.service
 exit'
 echo "Running rsync"
+rm -rf /home/bp/www/fettenajs.com/public_html/med/publish
 rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/MuscleWeb/bin/Debug/netcoreapp1.1/publish bp@fettenajs.com:/home/bp/www/fettenajs.com/public_html/med
 ssh bp@fettenajs.com '
 cd /home/bp/www/fettenajs.com/public_html/med/publish
