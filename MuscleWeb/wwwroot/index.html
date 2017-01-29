@@ -1,8 +1,11 @@
 <html>
+
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
 
 </head>
 
@@ -22,15 +25,52 @@
 
                 <!-- input textbox for searchterm -->
                 <input type="text" id="searchterm" placeholder="Search" autocomplete="off" oninput="inputchanged()">
-                <!-- table where JS appends the search result -->
-                <table id="muscleResults">
-                    <tbody id="tbodyappend">
-                        <!-- JS will append data here -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+<!-- table where JS appends the search result -->
+<table id="muscleResults">
+    <tbody id="tbodynosearchterm">
+        <tr>
+            <td id='muscleCategoryItem'>
+                <a href="#">
+                    <div>Head</div>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td id='muscleCategoryItem'>
+                <a href="#">
+                    <div>Neck</div>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td id='muscleCategoryItem'>
+                <a href="#">
+                    <div>Thorax</div>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td id='muscleCategoryItem'>
+                <a href="#">
+                    <div>Upper extremity</div>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td id='muscleCategoryItem'>
+                <a href="#">
+                    <div>Lower extremity</div>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+    <tbody id="tbodyappend">
+        <!-- JS will append data here -->
+    </tbody>
+</table>
+</div>
+</div>
+</div>
 </body>
 
 </html>

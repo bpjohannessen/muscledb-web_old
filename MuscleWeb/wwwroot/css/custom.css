@@ -42,3 +42,14 @@ input#searchterm {
 table#muscleResults {
   width: 300px;
 }
+
+tbody#tbodynosearchterm {
+  height: 3 8px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 0px;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 0.8em;
+}
