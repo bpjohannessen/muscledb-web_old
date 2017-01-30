@@ -33,7 +33,11 @@
   "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true,
-    "debugType": "portable"
+    "debugType": "portable",    
+    // This tells the compiler to embed all files in the SqlQueries folder in the assembly. 
+    "embed":{
+      "include": "SqlQueries/*.sql"
+    }  
   },
 
   "runtimeOptions": {
@@ -50,6 +54,8 @@
       "database.sql"
     ]
   },
+
+  
 
   "tooling": {
     "defaultNamespace": "MuscleWeb"
