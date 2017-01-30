@@ -42,7 +42,7 @@ public class MusclesController : Controller
     public MuscleDetails Get(int id)
     {
         string sql = Sql.Get("MuscleById");        
-        var result = connection.Read<MuscleDetails>(sql).Single();
+        var result = connection.Read<MuscleDetails>(sql, new {Id = id}).Single();
         return result;
     }
 }
