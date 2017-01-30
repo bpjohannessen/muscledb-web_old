@@ -37,8 +37,8 @@ INSERT INTO "tbl_musclegroups" VALUES(158,'Muscles of the ear opening','0',133,'
 INSERT INTO "tbl_musclegroups" VALUES(159,'1st layer','0',134,'');
 INSERT INTO "tbl_musclegroups" VALUES(160,'2nd layer','0',134,'');
 INSERT INTO "tbl_musclegroups" VALUES(161,'3rd layer','0',134,'');
-INSERT INTO "tbl_musclegroups" VALUES(162,'Anterior compartment','Compartimentum brachii anterius',135,'');
-INSERT INTO "tbl_musclegroups" VALUES(163,'Posterior compartment','Compartimentum brachii posterius',135,'');
+INSERT INTO "tbl_musclegroups" VALUES(162,'Anterior compartment','Compartimentum brachii anterius',129,'');
+INSERT INTO "tbl_musclegroups" VALUES(163,'Posterior compartment','Compartimentum brachii posterius',129,'');
 INSERT INTO "tbl_musclegroups" VALUES(164,'Anterior compartment','Compartimentum antebrachii anterius',135,'');
 INSERT INTO "tbl_musclegroups" VALUES(165,'Lateral (radial) part of the posterior compartment','Compartimentum antebrachii posterius, pars lateralis',135,'');
 INSERT INTO "tbl_musclegroups" VALUES(166,'Posterior compartment','Compartimentum antebrachii posterius',135,'');
