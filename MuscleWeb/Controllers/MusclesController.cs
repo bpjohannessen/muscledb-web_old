@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using DbReader;
+using System.Linq;
 
 [Route("api/[controller]")]
 public class MusclesController : Controller
@@ -30,5 +31,18 @@ public class MusclesController : Controller
             sql = $"SELECT * FROM musclesearch WHERE musclesearch MATCH @searchTerm";
             return connection.Read<MuscleResponse>(sql, new {searchTerm = searchTerm});
         }                
+    }
+
+    /// <summary>
+    /// Gets detailed information for a given muscle id.
+    /// </summary>
+    /// <param name="id">The id of the muscle for which to get detailed information.</param>
+    /// <returns><see name="MuscleDetails"/></returns>
+    [HttpGet("{id}")]
+    public MuscleDetails Get(int id)
+    {
+        string sql = Sql.Get("MuscleById");        
+        var result = connection.Read<MuscleDetails>(sql, new {Id = id}).Single();
+        return result;
     }
 }
