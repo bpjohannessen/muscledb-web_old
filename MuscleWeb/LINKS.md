@@ -6,6 +6,7 @@
 | [Tibialis posterior muscle - Wikipedia](https://en.wikipedia.org/wiki/Tibialis_posterior_muscle) | Used as an example for describing the artery tree. |
 | [Difference between Artery and Vein \| Major Differences](http://www.majordifferences.com/2013/02/difference-between-artery-and-vein.html#.WJBHbPnhAdW) | Sort of like blood vessels for dummies. Quick intro |
 | [Virtual Human Body – free anatomical atlas \| ikonet.com](http://www.ikonet.com/en/health/virtual-human-body/virtualhumanbody.php) | The human body in 3D. Great for looking at branching of arteries, veins and nerves |
+| [BioDigital: 3D Human Visualization Platform for Anatomy and Disease](https://www.biodigital.com/) | Another site that allows exploration of the human body in 3D |
 
 
 
