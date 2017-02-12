@@ -22,7 +22,7 @@ function search(query_value) {
 
         var $table = $("tbody#tbodyappend");
         $.each(json, function (idx, muscleitem) {
-            $table.append("<tr><td id='muscleResultItem'><a href='#" + muscleitem.id + "'><div>" + muscleitem.name + "</div></a></td></tr>");
+            $table.append("<tr><td id='muscleResultItem'><a href='/v2/api/muscles/" + muscleitem.id + "'><div>" + muscleitem.name + "</div></a></td></tr>");
         });
     });
 }
