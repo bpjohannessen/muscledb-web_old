@@ -5,6 +5,8 @@ SELECT
     m.insertio as insertio,
     m.name as name,
     m.lat_name as latinName,
+    m.comment as comment,
+    m.image as image,
     gt.id as MuscleGroups_id,
     gt.name as MuscleGroups_name,
     gt.lat_name as MuscleGroups_latinName

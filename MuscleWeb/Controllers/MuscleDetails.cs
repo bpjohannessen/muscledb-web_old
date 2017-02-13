@@ -8,7 +8,7 @@ public class MuscleDetails
     /// Gets or sets the Id (non-medical) of the muscle.
     /// </summary>
     /// <returns></returns>
-    public long Id {get;set;}
+    public long Id { get; set; }
 
     /// <summary>
     /// Gets or sets the the attachment site that doesn't move during contraction.
@@ -35,7 +35,17 @@ public class MuscleDetails
     /// <summary>
     /// Gets or sets the name of the muscle.
     /// </summary>    
-    public string Name { get; set; }    
+    public string Name { get; set; }
+
+    /// <summary>
+    /// Gets or sets the image (filename) of the muscle.
+    /// </summary>    
+    public string Image { get; set; }
+
+    /// <summary>
+    /// Gets or sets the comment of the muscle.
+    /// </summary>    
+    public string Comment { get; set; }
 
     // /// <summary>
     // /// Gets or sets the arteries that supplies blood to this muscle.
@@ -48,5 +58,5 @@ public class MuscleDetails
     /// starting with the top level group as the first entry in the list.
     /// </summary>
     /// <returns></returns>
-    public ICollection<MuscleGroup> MuscleGroups {get;set;}    
+    public ICollection<MuscleGroup> MuscleGroups { get; set; }
 }
