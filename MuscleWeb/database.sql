@@ -406,21 +406,21 @@ CREATE TABLE tbl_musclegroups (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, na
 INSERT INTO "tbl_musclegroups" VALUES(126,'Muscles of the head','Mm. capitis',NULL,'Includes masticatoy and mimetic muscles, 1st and 2nd visceral arch');
 INSERT INTO "tbl_musclegroups" VALUES(127,'Muscles of the neck','Mm. colli',NULL,'Muscles of the neck');
 INSERT INTO "tbl_musclegroups" VALUES(128,'Muscles of the thorax','Mm. thoracis',NULL,'NULL');
-INSERT INTO "tbl_musclegroups" VALUES(129,'Muscles of the upper limb','Muscles of the upper limb',NULL,'NULL');
-INSERT INTO "tbl_musclegroups" VALUES(130,'Muscles of the lower limb','Muscles of the lower limb',NULL,'NULL');
+INSERT INTO "tbl_musclegroups" VALUES(129,'Muscles of the upper limb','Musculi membri superioris',NULL,'NULL');
+INSERT INTO "tbl_musclegroups" VALUES(130,'Muscles of the lower limb','Musculi membri inferioris',NULL,'NULL');
 INSERT INTO "tbl_musclegroups" VALUES(131,'Muscles of the abdomen','Mm. abdominis',NULL,'');
 INSERT INTO "tbl_musclegroups" VALUES(132,'Masticatory muscles','Mm. masticatorii',126,'Derivates of the 1st visceral arch');
 INSERT INTO "tbl_musclegroups" VALUES(133,'Facial (mimetic muscles)','Mm. faciei',126,'Derivates of the 2nd visceral arch');
-INSERT INTO "tbl_musclegroups" VALUES(134,'Derivates of the 1st visceral arch','Derivates of the 1st visceral arch',127,'');
-INSERT INTO "tbl_musclegroups" VALUES(135,'Derivates of the 2nd visceral arch','Derivates of the 2nd visceral arch',127,'');
-INSERT INTO "tbl_musclegroups" VALUES(136,'Craniothoracal muscles','Craniothoracal muscles',127,'');
-INSERT INTO "tbl_musclegroups" VALUES(137,'Straight muscles of the neck','Straight muscles of the neck',127,'');
-INSERT INTO "tbl_musclegroups" VALUES(138,'Lateral muscles of the neck','Lateral muscles of the neck',127,'');
-INSERT INTO "tbl_musclegroups" VALUES(139,'Deep muscles of neck','Deep muscles of neck',127,'');
+INSERT INTO "tbl_musclegroups" VALUES(134,'Derivates of the 1st visceral arch','0',127,'');
+INSERT INTO "tbl_musclegroups" VALUES(135,'Derivates of the 2nd visceral arch','0',127,'');
+INSERT INTO "tbl_musclegroups" VALUES(136,'Craniothoracal muscles','0',127,'');
+INSERT INTO "tbl_musclegroups" VALUES(137,'Straight muscles of the neck','0',127,'');
+INSERT INTO "tbl_musclegroups" VALUES(138,'Lateral muscles of the neck','0',127,'');
+INSERT INTO "tbl_musclegroups" VALUES(139,'Deep muscles of neck','0',127,'');
 INSERT INTO "tbl_musclegroups" VALUES(140,'Diaphragma','Diaphragma',127,'');
-INSERT INTO "tbl_musclegroups" VALUES(141,'Superficial muscles of thorax','Superficial muscles of thorax',128,'');
-INSERT INTO "tbl_musclegroups" VALUES(142,'Deep muscles of thorax','Deep muscles of thorax',128,'');
-INSERT INTO "tbl_musclegroups" VALUES(143,'Muscles of the shoulder girdle','Muscles of the shoulder girdle',129,'');
+INSERT INTO "tbl_musclegroups" VALUES(141,'Superficial muscles of thorax','0',128,'');
+INSERT INTO "tbl_musclegroups" VALUES(142,'Deep muscles of thorax','0',128,'');
+INSERT INTO "tbl_musclegroups" VALUES(143,'Muscles of the shoulder girdle','0',129,'');
 INSERT INTO "tbl_musclegroups" VALUES(144,'Muscles of the arm','Mm. brachii',129,'');
 INSERT INTO "tbl_musclegroups" VALUES(145,'Muscles of the forearm','Mm. antebrachii',129,'');
 INSERT INTO "tbl_musclegroups" VALUES(146,'Muscles of the hand','Mm. manus',129,'');
@@ -428,10 +428,10 @@ INSERT INTO "tbl_musclegroups" VALUES(147,'Pelvic muscles','Mm. pelvis',130,'');
 INSERT INTO "tbl_musclegroups" VALUES(148,'Muscles of the thigh','Mm. femoris',130,'');
 INSERT INTO "tbl_musclegroups" VALUES(149,'Muscles of the leg','Mm. cruris',130,'');
 INSERT INTO "tbl_musclegroups" VALUES(150,'Muscles of the foot','Mm. pedis',130,'');
-INSERT INTO "tbl_musclegroups" VALUES(151,'Deep muscles of the thorax','Deep muscles of the thorax',128,'');
-INSERT INTO "tbl_musclegroups" VALUES(152,'Anterior abdominal muscles','Anterior abdominal muscles',131,'');
-INSERT INTO "tbl_musclegroups" VALUES(153,'Lateral abdominal muscles','Lateral abdominal muscles',131,'');
-INSERT INTO "tbl_musclegroups" VALUES(154,'Posterior abdominal muscles','Posterior abdominal muscles',131,'');
+INSERT INTO "tbl_musclegroups" VALUES(151,'Deep muscles of the thorax','0',128,'');
+INSERT INTO "tbl_musclegroups" VALUES(152,'Anterior abdominal muscles','0',131,'');
+INSERT INTO "tbl_musclegroups" VALUES(153,'Lateral abdominal muscles','0',131,'');
+INSERT INTO "tbl_musclegroups" VALUES(154,'Posterior abdominal muscles','0',131,'');
 INSERT INTO "tbl_musclegroups" VALUES(155,'Muscles of the scalp and around the eye opening','0',133,'NULL');
 INSERT INTO "tbl_musclegroups" VALUES(156,'Muscles of the nose opening','0',133,'NULL');
 INSERT INTO "tbl_musclegroups" VALUES(157,'Mimetic muscles in the region of the mouth','0',133,'NULL');
@@ -446,27 +446,27 @@ INSERT INTO "tbl_musclegroups" VALUES(165,'Lateral (radial) part of the posterio
 INSERT INTO "tbl_musclegroups" VALUES(166,'Posterior compartment','Compartimentum antebrachii posterius',145,'');
 INSERT INTO "tbl_musclegroups" VALUES(167,'Muscles of the thumb','Mm. eminentiae thenaris',146,'Muscles of the thumb');
 INSERT INTO "tbl_musclegroups" VALUES(168,'Muscles of the little finger','Mm. eminentiae hypothenaris',146,'');
-INSERT INTO "tbl_musclegroups" VALUES(169,'Middle group of the hand muscles','Middle group of the hand muscles',146,'');
-INSERT INTO "tbl_musclegroups" VALUES(170,'Anterior pelvic muscles','Anterior pelvic muscles',147,'');
-INSERT INTO "tbl_musclegroups" VALUES(171,'Posterior pelvic muscles','Posterior pelvic muscles',147,'');
+INSERT INTO "tbl_musclegroups" VALUES(169,'Middle group of the hand muscles','0',146,'');
+INSERT INTO "tbl_musclegroups" VALUES(170,'Anterior pelvic muscles','0',147,'');
+INSERT INTO "tbl_musclegroups" VALUES(171,'Posterior pelvic muscles','0',147,'');
 INSERT INTO "tbl_musclegroups" VALUES(172,'Anterior compartment of the thigh','Compartimentum femoris anterius',148,'');
 INSERT INTO "tbl_musclegroups" VALUES(173,'Medial compartment of the thigh','Compartimentum femoris mediale',148,'');
 INSERT INTO "tbl_musclegroups" VALUES(174,'Posterior compartment of the thigh','Compartimentum femoris posterius',148,'');
 INSERT INTO "tbl_musclegroups" VALUES(175,'Anterior compartment of the leg','Compartimentum cruris anterius',149,'');
 INSERT INTO "tbl_musclegroups" VALUES(176,'Lateral compartment of the leg','Compartimentum cruris laterale',149,'');
 INSERT INTO "tbl_musclegroups" VALUES(177,'Posterior compartment of the leg','Compartimentum cruris posterior',149,'');
-INSERT INTO "tbl_musclegroups" VALUES(178,'Dorsal surface of the foot','',150,'');
-INSERT INTO "tbl_musclegroups" VALUES(179,'Plantar surface of the foot','',150,'');
-INSERT INTO "tbl_musclegroups" VALUES(180,'1st layer','',164,'');
-INSERT INTO "tbl_musclegroups" VALUES(181,'2nd layer','',164,'');
-INSERT INTO "tbl_musclegroups" VALUES(182,'3rd layer','',164,'');
-INSERT INTO "tbl_musclegroups" VALUES(183,'4th layer','',164,'');
-INSERT INTO "tbl_musclegroups" VALUES(184,'1st layer','',166,'');
-INSERT INTO "tbl_musclegroups" VALUES(185,'2nd layer','',166,'');
-INSERT INTO "tbl_musclegroups" VALUES(186,'Muscles of the great toe','',179,'');
-INSERT INTO "tbl_musclegroups" VALUES(187,'Muscles of the little toe','',179,'');
-INSERT INTO "tbl_musclegroups" VALUES(188,'Middle group muscles of the foot','',179,'');
-INSERT INTO "tbl_musclegroups" VALUES(189,'Superficial muscles of the back','Superficial muscles of the back',128,NULL);
+INSERT INTO "tbl_musclegroups" VALUES(178,'Dorsal surface of the foot','0',150,'');
+INSERT INTO "tbl_musclegroups" VALUES(179,'Plantar surface of the foot','0',150,'');
+INSERT INTO "tbl_musclegroups" VALUES(180,'1st layer','0',164,'');
+INSERT INTO "tbl_musclegroups" VALUES(181,'2nd layer','0',164,'');
+INSERT INTO "tbl_musclegroups" VALUES(182,'3rd layer','0',164,'');
+INSERT INTO "tbl_musclegroups" VALUES(183,'4th layer','0',164,'');
+INSERT INTO "tbl_musclegroups" VALUES(184,'1st layer','0',166,'');
+INSERT INTO "tbl_musclegroups" VALUES(185,'2nd layer','0',166,'');
+INSERT INTO "tbl_musclegroups" VALUES(186,'Muscles of the great toe','0',179,'');
+INSERT INTO "tbl_musclegroups" VALUES(187,'Muscles of the little toe','0',179,'');
+INSERT INTO "tbl_musclegroups" VALUES(188,'Middle group muscles of the foot','0',179,'');
+INSERT INTO "tbl_musclegroups" VALUES(189,'Superficial muscles of the back','0',128,NULL);
 INSERT INTO "tbl_musclegroups" VALUES(190,'1st layer','0',189,NULL);
 INSERT INTO "tbl_musclegroups" VALUES(191,'2nd layer','0',189,NULL);
 INSERT INTO "tbl_musclegroups" VALUES(192,'3rd layer','0',189,NULL);
@@ -735,6 +735,7 @@ CREATE VIEW view_grouptree AS SELECT * FROM
 WITH RECURSIVE tbl (
     id,
     name,
+    lat_name,
     parent_id,
     grouplevel,
     bottomgroupid
@@ -742,6 +743,7 @@ WITH RECURSIVE tbl (
 AS (
     SELECT bottomgroup.id,
            bottomgroup.name,
+           bottomgroup.lat_name,
            bottomgroup.parent_id,
            0,
            bottomgroup.id
@@ -749,6 +751,7 @@ AS (
     UNION
     SELECT mc.id,
            mc.name,
+           mc.lat_name,
            mc.parent_id,
            tbl.grouplevel - 1,
            tbl.bottomgroupid
