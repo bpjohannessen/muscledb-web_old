@@ -1,21 +1,13 @@
-muscledb
+muscledb-web
 ========
 
-Demo: http://fettenajs.com/med/Code/muscledb/
+Demo: http://fettenajs.com/v2/
 
-This project is still in development. It is a real-time searchable database for skeletal muscles which includes muscle name in Latin and English. Origin, insertion (origo et insertio) and function is also searchable.
+This project is still in development. It features a type as you search-database for skeletal muscles which includes the muscle names in Latin and English. Origin, insertion, and function (origo, insertio et functio) will also be searchable.
 
-To try it in a isolated virtual machine using [Vagrant](https://www.vagrantup.com/):
+The project is still in development and minor issues may be present. The known issues are listed in [here](https://github.com/bpjohannessen/muscledb-web/issues).
 
-    git clone https://github.com/bpjohannessen/muscledb
-    cd /vagrant/
-    echo "myPassword" > mysqlpw.txt
-    nano db_cred.php # Add database password
-    vagrant up
-
-Then simply navigate to http://localhost:8080
-
-muscledb can also be packed in a [Docker](https://www.docker.com/) container. Follow [this guide.](https://github.com/bpjohannessen/muscledb/blob/master/docker.md)
+Contributions, questions, and suggestions are very welcome!
 
 Disclaimer
 -----------
