@@ -6,12 +6,12 @@ function inputchanged() {
         $(".appended").remove();
     } else {
         $("table#muscleResults").show();
-        $(this).data('timer', setTimeout(search(search_string), 100)); // Needs some adjustment?
+        $(this).data('timer', setTimeout(search(search_string), 0)); // Needs some adjustment?
     };
 }
 
 function search(query_value) {
-    $("tbody#tbodyappend").empty();
+    $(".appended").remove();
     $.getJSON("api/muscles", { searchterm: query_value }, function (json) {
 
         var $table = $("tbody#tbodyappend");
