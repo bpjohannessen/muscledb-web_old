@@ -30,7 +30,7 @@ $(document).ready(function () {
         $table.append("<tr><th>Insertio:</th><td>" + json.insertio + "</td></tr>");
         $table.append("<tr><th>Functio:</th><td>" + json.functio + "</td></tr>");
         //$table.append("<tr><th>Image(url):</th><td>" + json.image + "</td></tr>");
-        $table.append("<tr><td colspan='2' style='text-align: center;'><image style='max-width: 250px;' src='http://fettenajs.com/med/Code/muscledb/resources/images/muscles/" + json.image + "'></td></tr>");
+        $table.append("<tr><td colspan='2' style='text-align: center;'><image style='max-width: 250px;' src='images/muscles/" + json.image + "'></td></tr>");
         if(json.comment != 'N/A') {
             $table.append("<tr><th>Comment:</th><td>" + json.comment + "</td></tr>");
         }     
