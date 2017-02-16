@@ -28,6 +28,7 @@ public class MusclesController : Controller
         }
         else
         {
+            searchTerm = $"*{searchTerm}*";
             sql = $"SELECT * FROM musclesearch WHERE musclesearch MATCH @searchTerm";
             return connection.Read<MuscleResponse>(sql, new {searchTerm = searchTerm});
         }                
