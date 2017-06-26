@@ -40,7 +40,7 @@ input#searchterm {
 }
 
 table#muscleResults {
-  width: 400px;
+  width: 100%;
 }
 
 tbody#tbodynosearchterm {
