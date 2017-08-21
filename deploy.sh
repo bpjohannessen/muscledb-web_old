@@ -22,17 +22,9 @@ ssh bp@fettenajs.com '
 cd /home/bp/www/fettenajs.com/public_html/med/publish
 cat database.sql | sqlite3 muscles.db
 echo "Hacking sql"
-sqlite3 muscles.db 'delete from musclesearch;
-insert into musclesearch
-select 
-    id,
-    lat_name,
-    name,
-    origo,
-    insertio,
-    functio
-from 
-    tbl_muscles;'
+chmod +x sql.sh
+sql.sh
+rm sql.sh
 echo "Starting kestrel"
 sudo systemctl start kestrel-muscleweb.service
 exit'
