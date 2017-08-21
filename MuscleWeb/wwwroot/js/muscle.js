@@ -18,11 +18,11 @@ $(document).ready(function () {
         var $table = $("tbody#tbodyappend");
 
         $table.append("<tr><th colspan='2' style='text-align: center;'>" + json.latinName + "</th></tr>");
-        $table.append("<tr><th colspan='2' style='text-align: center;'>" + json.name + "</th></tr>");
+        $table.append("<tr><th colspan='2' style='text-align: center; border: 0;'>" + json.name + "</th></tr>");
         
-        $table.append("<tr><td id='muscleGroupCell' colspan='2' style='font-size: 0.8em;'>");
+        $table.append("<tr><td id='muscleGroupCell' colspan='2' style='text-align: center; font-style: italic; font-size: 0.8em;'>");
         $.each(json.muscleGroups, function (key, value) {
-            $("#muscleGroupCell").append(value.name + "<br>");
+            $("#muscleGroupCell").append(value.name + "<br>");            
         });
         $table.append("</td></tr>");
 
