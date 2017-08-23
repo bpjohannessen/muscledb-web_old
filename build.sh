@@ -33,6 +33,11 @@ cd MuscleWeb/bin/Debug/netcoreapp1.1/publish/
 dotnet MuscleWeb.dll 
 }
 
+function docker()
+{ 
+sudo docker build -t $(whoami)/muscleweb MuscleWeb/
+}
+
 if [ $# -eq 0 ]; then 
     build
 else 
