@@ -19,5 +19,6 @@
   <ItemGroup>
     <EmbeddedResource Include="SqlQueries\MuscleById.sql" />
     <EmbeddedResource Include="SqlQueries\MusclesByGroupId.sql" />
+    <EmbeddedResource Include="SqlQueries\MuscleGroupHierarchy.sql" />
   </ItemGroup>
 </Project>

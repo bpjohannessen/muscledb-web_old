@@ -15,10 +15,31 @@ public class MuscleGroupsController : Controller
     }
     
     [HttpGet("{id}")]
-    public IEnumerable<MuscleGroupResponse> Get(int id)
+    public MuscleGroupHierarchy Get(int id)
     {        
         string sql = null;       
-        sql = Sql.Get("MusclesByGroupId");
-        return connection.Read<MuscleGroupResponse>(sql, new {groupid = id});                  
-    }   
+        sql = Sql.Get("MuscleGroupHierarchy");
+        var groups = connection.Read<MuscleGroupHierarchy>(sql, new {groupid = id}).ToArray();                 
+        var map = new Dictionary<long?, MuscleGroupHierarchy>();
+        foreach (var group in groups)
+        {
+            if (group.ParentId != null)
+            {
+                map[group.ParentId].SubMuscleGroups.Add(group);
+            }
+            map.Add(group.Id, group);
+        }
+        var topLevelGroup = map.First().Value;
+        return topLevelGroup;
+    }                    
+//   if (employee.ReportsTo != null)
+//   {
+//   	map[employee.ReportsTo].Employees.Add(employee);
+//   }
+//   map.Add(employee.EmployeeId, employee);
+// }
+
+// var initialEmployee = map.First().Value;
+//         return null;
+//     }   
 }
