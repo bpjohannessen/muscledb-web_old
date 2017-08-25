@@ -39,8 +39,9 @@ namespace MuscleWeb
         private IDbConnection CreateConnection()
         {
             SqliteConnection connection = new SqliteConnection("data source = muscles.db");
-            //DbReaderOptions.WhenReading<long>
-
+            DbReaderOptions.WhenReading<long?>().Use((rd, i)=> rd.GetInt32(i));
+            DbReaderOptions.WhenReading<long>().Use((rd, i)=> rd.GetInt32(i));
+            DbReaderOptions.WhenReading<string>().Use((rd, i)=> (string)rd.GetValue(i));
             connection.Open();
             return connection;
         }
