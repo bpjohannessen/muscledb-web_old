@@ -60,7 +60,7 @@ div#header {
   /*width: 100%;*/
 }
 
-ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0 40 0 0;
@@ -68,15 +68,15 @@ ul {
     background-color: #333333;
 }
 
-li {
+nav ul li {
     float: right;
 }
 
-li:hover {
+nav ul li:hover {
   background-color: #444444;
 }
 
-li a {
+nav ul li a {
     display: block;
     color: white;
     text-align: center;
@@ -84,10 +84,14 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+nav ul li a:hover {
 
 }
 
 input#searchterm:focus {
   border-color: #333;
+}
+
+span#grouplist {
+  
 }
