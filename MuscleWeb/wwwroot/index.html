@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/index.js"></script>
@@ -6,6 +7,7 @@
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/custom.css">
 </head>
+
 <body>
     <div id="main" class="container">
         <div class="row">
@@ -13,12 +15,12 @@
                 <nav>
                     <ul style="height: 56px;">
                         <li><a href="about.html">about</a></li>
-                        <li><a href="#">lower extremities</a></li>
-                        <li><a href="#">upper extremities</a></li>
-                        <li><a href="#">abdomen</a></li>
-                        <li><a href="#">thorax</a></li>
+                        <li><a href="groups.html?id=130">lower extremities</a></li>
+                        <li><a href="groups.html?id=129">upper extremities</a></li>
+                        <li><a href="groups.html?id=131">abdomen</a></li>
+                        <li><a href="groups.html?id=128">thorax</a></li>
                         <li><a href="groups.html?id=127">neck</a></li>
-                        <li><a href="#">head</a></li>
+                        <li><a href="groups.html?id=126">head</a></li>
                         <li><a href="index.html">muscles of the...</a></li>
                     </ul>
                 </nav>
@@ -33,7 +35,7 @@
                         <input type="text" id="searchterm" placeholder="Search" autocomplete="off" oninput="inputchanged()">
                         <table id="muscleResults" style="border: 1px solid black; margin-left: auto; margin-right: auto;">
                             <tbody id="tbodyappend">
-                                <!-- JS will append data here -->
+                                <!-- JS will append the search result here -->
                             </tbody>
                         </table>
                     </div>
@@ -42,4 +44,5 @@
         </div>
     </div>
 </body>
+
 </html>
