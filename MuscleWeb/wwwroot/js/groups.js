@@ -20,32 +20,19 @@ $(document).ready(function () {
         var group = json;
         renderGroup(group, $ul);
 
-
-        // while(group.SubMuscleGroups.length > 0)        
-        // {
-
-        // }
-        // console.log(json);
-        // var $ul = $("ul#grouplist");
-
-        // $.each(json, function (idx, muscle) {
-        //     $ul.append("<li><a href='muscle.html?id="+ muscle.id +"'>" + muscle.latinName + "</a></li>");
-        // });   
-
         function renderGroup(group, list){
-            console.log(list);            
-            list.append("<ul id=" + group.id + "></ul>");
-            
-            var $sublist = $("ul#" + group.id);
 
-            console.log($sublist);
+            list.append("<ul id=" + group.id + "></ul>"); 
+            var muscleGroupList = $("ul#" + group.id);       
+            muscleGroupList.append("<li>" + group.name + "</li>");
+            muscleGroupList.append("<ul id=ml" + group.id + "></ul>");
+            var muscleList = $("#ml" + group.id);
 
-            $sublist.append("<li>" + group.name + "</li>");
             $.each(group.muscles, function (idx, muscle) {
-                $sublist.append("<li><a href='muscle.html?id="+ muscle.id +"'>" + muscle.latinName + "</a></li>");
+                muscleList.append("<li><a href='muscle.html?id="+ muscle.id +"'>" + muscle.latinName + "</a></li>");
             });  
             $.each(group.subMuscleGroups, function(idx, subgroup){
-                renderGroup(subgroup, list);
+                renderGroup(subgroup, muscleGroupList);
             });
         }
     });

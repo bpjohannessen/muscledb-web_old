@@ -91,3 +91,7 @@ nav ul li a:hover {
 input#searchterm:focus {
   border-color: #333;
 }
+
+span#grouplist {
+  
+}
