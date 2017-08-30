@@ -24,12 +24,16 @@ $(document).ready(function () {
 
             list.append("<ul id=" + group.id + "></ul>"); 
             var muscleGroupList = $("ul#" + group.id);       
-            muscleGroupList.append("<li>" + group.name + "</li>");
-            muscleGroupList.append("<ul id=ml" + group.id + "></ul>");
-            var muscleList = $("#ml" + group.id);
+            muscleGroupList.append("<li style='font-weight: bold;'>" + group.name + "</li>");
+            muscleGroupList.append("<ul id='ml" + group.id + "'></ul>");
+            var muscleList = $("#ml"+group.id);
+            muscleList.append("<li>This should be appended to ul id ml " + group.id +"</li>");
+
+            console.log(muscleList);
+            console.log("next");
 
             $.each(group.muscles, function (idx, muscle) {
-                muscleList.append("<li><a href='muscle.html?id="+ muscle.id +"'>" + muscle.latinName + "</a></li>");
+                muscleList.append("<li style='list-style: square;'><a href='muscle.html?id="+ muscle.id +"'>" + muscle.latinName + "</a></li>");
             });  
             $.each(group.subMuscleGroups, function(idx, subgroup){
                 renderGroup(subgroup, muscleGroupList);

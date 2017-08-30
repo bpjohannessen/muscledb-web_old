@@ -92,6 +92,18 @@ input#searchterm:focus {
   border-color: #333;
 }
 
-span#grouplist {
-  
+ul#grouplist {
+  text-align: left;
 }
+
+ul#grouplist li {
+  list-style: none;
+}
+
+ul#grouplist > li {
+  list-style: square;
+}
+
+/*div#groupview li:first-child {
+  list-style: none;
+}*/
