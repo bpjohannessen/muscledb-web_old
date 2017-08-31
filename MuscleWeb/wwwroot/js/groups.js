@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     $.getJSON($queryurl, function (json) {
         
-        var $ul = $("ul#grouplist");
+        var $ul = $("div#grouplist");
         var group = json;
         renderGroup(group, $ul);
 
@@ -27,7 +27,8 @@ $(document).ready(function () {
             muscleGroupList.append("<li style='font-weight: bold;'>" + group.name + "</li>");
             muscleGroupList.append("<ul id='ml" + group.id + "'></ul>");
             var muscleList = $("#ml"+group.id);
-            muscleList.append("<li>This should be appended to ul id ml " + group.id +"</li>");
+            // muscleList.append("<li>This should be appended to ul id ml " + group.id +"</li>");
+            // muscleList.append("");
 
             console.log(muscleList);
             console.log("next");
