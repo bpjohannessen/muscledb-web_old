@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     $.getJSON($queryurl, function (json) {
 
-        var $ul = $("ul#grouplist");
+        var $ul = $("div#grouplist");
         var group = json;
         renderGroup(group, $ul);
 
@@ -24,10 +24,10 @@ $(document).ready(function () {
 
             list.append("<ul id=" + group.id + "></ul>");
             var muscleGroupList = $("ul#" + group.id);
-            muscleGroupList.append("<li>" + group.name + "</li>");
+            muscleGroupList.append("<li style='font-weight: bold;'>" + group.name + "</li>");
 
             if (group.muscles.length > 0) {
-                muscleGroupList.append("<ul id=ml" + group.id + "></ul>");
+                muscleGroupList.append("<ul style='list-style: square;' id=ml" + group.id + "></ul>");
                 var muscleList = $("#ml" + group.id);
             }
 

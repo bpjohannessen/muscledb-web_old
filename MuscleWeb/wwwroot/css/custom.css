@@ -84,14 +84,18 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li a:hover {
-
-}
-
 input#searchterm:focus {
   border-color: #333;
 }
 
-span#grouplist {
-  
+div#grouplist {
+  text-align: left;
+}
+
+div#grouplist ul {
+  list-style: none;
+}
+
+ul[id^="ml"] {
+  list-style: square;
 }
