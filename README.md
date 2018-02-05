@@ -5,7 +5,7 @@ Demo: http://fettenajs.com/v2/
 
 This project is still in development. It features a type as you search-database for skeletal muscles which includes the muscle names in Latin and English. Origin, insertion, and function (origo, insertio et functio) will also be searchable.
 
-The project is still in development and minor issues may be present. The known issues are listed in [here](https://github.com/bpjohannessen/muscledb-web/issues).
+The project is still in development and minor issues may be present. The known issues are listed [here](https://github.com/bpjohannessen/muscledb-web/issues).
 
 Contributions, questions, and suggestions are very welcome!
 
