@@ -47,6 +47,36 @@ public class MuscleDetails
     /// </summary>    
     public string Comment { get; set; }
 
+    /// <summary>
+    /// Gets or sets the artery id of the muscle.
+    /// </summary>   
+    public long Artery_Id { get; set; }
+
+    /// <summary>
+    /// Gets or sets the artery name of the muscle.
+    /// </summary>  
+    public string Artery { get; set; }
+
+        /// <summary>
+    /// Gets or sets the vein id of the muscle.
+    /// </summary>   
+    public long Vein_Id { get; set; }
+
+    /// <summary>
+    /// Gets or sets the vein name of the muscle.
+    /// </summary>  
+    public string Vein { get; set; }
+
+        /// <summary>
+    /// Gets or sets the nerve id of the muscle.
+    /// </summary>   
+    public long Nerve_Id { get; set; }
+
+    /// <summary>
+    /// Gets or sets the nerve name of the muscle.
+    /// </summary>  
+    public string Nerve { get; set; }
+
     // /// <summary>
     // /// Gets or sets the arteries that supplies blood to this muscle.
     // /// </summary>
