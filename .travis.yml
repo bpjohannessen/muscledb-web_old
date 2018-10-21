@@ -4,7 +4,7 @@ matrix:
   - os: linux
     dist: trusty
     sudo: required
-    dotnet: 1.0.4
+    dotnet: 2.1.202
 addons:
   ssh_known_hosts: fettenajs.com
 script:
