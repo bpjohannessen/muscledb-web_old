@@ -7,10 +7,8 @@ SELECT
     m.lat_name as latinName,
     ifnull(m.comment, 'N/A') as comment,
     m.image as image,
-    m.artery as artery_id,
     m.vein as vein_id,
     m.nerve as nerve_id,
-    (SELECT a.lat_name FROM tbl_arteries a WHERE a.id = m.artery) AS artery,
     (SELECT v.lat_name FROM tbl_veins v WHERE v.id = m.vein) AS vein,
     (SELECT n.lat_name FROM tbl_nerves n WHERE n.id = m.nerve) AS nerve,
 
