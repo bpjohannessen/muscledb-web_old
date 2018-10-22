@@ -29,7 +29,17 @@ $(document).ready(function () {
         $table.append("<tr><th>Origo:</th><td>" + json.origo + "</td></tr>");
         $table.append("<tr><th>Insertio:</th><td>" + json.insertio + "</td></tr>");
         $table.append("<tr><th>Functio:</th><td>" + json.functio + "</td></tr>");
-        $table.append("<tr><th>Arteries (exp):</th><td>" + json.arteries + "</td></tr>");
+
+        $table.append("<tr><th>Arteries (exp):</th>");
+
+        $table.append("<td id='muscleArteryCell'>");
+
+        $.each(json.muscleArteries, function (key, value) {
+            $("#muscleArteryCell").append(value.name + "<br>");            
+        });
+
+        $table.append("</td></tr>");
+        
         $table.append("<tr><th>Artery:</th><td>" + json.artery + "</td></tr>");
         $table.append("<tr><th>Vein:</th><td>" + json.vein + "</td></tr>");
         $table.append("<tr><th>Nerve:</th><td>" + json.nerve + "</td></tr>");
