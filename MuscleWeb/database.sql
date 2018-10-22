@@ -500,18 +500,6 @@ INSERT INTO tbl_nerves VALUES(27,'N. musculocutaneus','Musculocutaneous nerve','
 INSERT INTO tbl_nerves VALUES(28,'Rr. musculares n. radialis','Muscular branches of the radial nerve','');
 INSERT INTO tbl_nerves VALUES(29,'Rr. musculares n. mediani','Muscular branches of the median nerve','');
 INSERT INTO tbl_nerves VALUES(30,'Rr. musculares n. ulnaris','Muscular branches of the ulnar nerve','');
-INSERT INTO tbl_nerves VALUES(31,'Plexus brachialis, pars supraclavicularis','Brachial plexus, supraclavicular part','0');
-INSERT INTO tbl_nerves VALUES(32,'Plexus brachialis, pars infraclavicularis','Brachial plexus, infraclavicular part','0');
-INSERT INTO tbl_nerves VALUES(33,'Fasciculus medialis','Medial cord','32');
-INSERT INTO tbl_nerves VALUES(34,'Fasciculus posterior','Posterior cord','32');
-INSERT INTO tbl_nerves VALUES(35,'Fasciculus lateralis','Lateral cord','32');
-INSERT INTO tbl_nerves VALUES(36,'N. radialis','Radial nerve','34');
-INSERT INTO tbl_nerves VALUES(37,'N. medianus','Median nerve','0');
-INSERT INTO tbl_nerves VALUES(38,'N. interosseus antebrachii anterior n. mediani','Anterior interosseus nerve','37');
-INSERT INTO tbl_nerves VALUES(39,'R. profundus n. radialis','Deep branch of the radial nerve','36');
-INSERT INTO tbl_nerves VALUES(40,'N. interosseus antebrachii posterior n. radialis','0','39');
-INSERT INTO tbl_nerves VALUES(41,'N. ulnaris','Ulnar nerve','33');
-INSERT INTO tbl_nerves VALUES(42,'R. profundus n. ulnaris','Deep branch of the ulnar nerve','41');
 CREATE TABLE IF NOT EXISTS 'tbl_veins' (
   `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
 ,  `lat_name` text NOT NULL
@@ -605,6 +593,7 @@ INSERT INTO tbl_muscles VALUES(78,'M. pronator teres','Pronator teres muscle','E
 INSERT INTO tbl_muscles VALUES(80,'M. flexor carpi radialis','Flexor carpi radialis muscle','Epicondylus medialis humeri, fascia antebrachii','Basis ossis metacarpalis II et III','Flexio manus, abductio manus','29',29,0,'mflexorcarpiradialis.png','N/A','',180);
 INSERT INTO tbl_muscles VALUES(81,'M. palmaris longus','Palmaris longus muscle','Epicondylus medalis humeri','Aponeurosis palmaris','Flexio manus','29',28,0,'mpalmarislongus.png','N/A','',180);
 INSERT INTO tbl_muscles VALUES(82,'M. flexor carpi ulnaris','Flexor carpi ulnaris muscle','Epicondylus medialis humeri, olecranon, margo posterior ulnae','Os pisiforme, os hamatum, os metacarpale V','Flexio manus, adductio manus','30',28,0,'mflexorcarpriulnaris.png','N/A','',180);
+<<<<<<< HEAD
 INSERT INTO tbl_muscles VALUES(83,'M. flexor digitorum superficialis','Flexor digitorum superficialis','Epicondylus medalis humeri','Basis phalangis mediae II-V','Flexio phalangis mediae, flexio phalangis proximalis, flexio manus',37,28,0,'mflexordigitorumsuperficialis.png','N/A','',181);
 INSERT INTO tbl_muscles VALUES(84,'M. flexor digitorum profundus','Flexor digitorum profundus','Facies anterior ulnae, membrana interossea antebrachii','Basis phalangis distalis II-V','Flexio phalangis distalis, flexio phalangis mediae, flexio phalangis proximalis, flexio manus','0',35,0,'mflexordigitorumprofundus.png','N/A','',182);
 INSERT INTO tbl_muscles VALUES(85,'M. flexor pollicis longus','Flexor pollicis longus muscle','Facies anterior radii, membrana interossea antebrachii','Basis phalangis distalis pollicis','Flaxio phalangis distalis et proximalis pollicis, flexio poliicis, flexio manus',38,35,0,'mflexorpollicislongus.png','N/A','',182);
@@ -620,6 +609,23 @@ INSERT INTO tbl_muscles VALUES(94,'M. extensor pollicis brevis','Extensor pollic
 INSERT INTO tbl_muscles VALUES(95,'M. extensor pollicis longus','Extensor pollicis longus muscle','Facies posterior ulnae, membrana interossea antebrachii ','Basis phalangis distalis pollicis ','Extensio pollicis',40,0,0,'mextensorpollicislongus.png','N/A','',185);
 INSERT INTO tbl_muscles VALUES(96,'M. extensor indicis','Extensor indicis muscle','Facies posterior ulnae, membrana interossea antebrachii ','Basis phalangis mediae, basis phalangis distalis indicis ','Extensio indicis ',40,0,0,'mextensorindicis.png','N/A','',185);
 INSERT INTO tbl_muscles VALUES(97,'M. supinator','Supinator muscle','Epicondylus lateralis humeri, ulna, lig. collaterale radiale ','Facies lateralis radii ','Supinatio antebrachii ',40,0,0,'msupinator.png','N/A','',185);
+=======
+INSERT INTO tbl_muscles VALUES(83,'M. flexor digitorum superficialis','Flexor digitorum superficialis','Epicondylus medalis humeri','Basis phalangis mediae II-V','Flexio phalangis mediae, flexio phalangis proximalis, flexio manus','0',28,0,'mflexordigitorumsuperficialis.png','N/A','',181);
+INSERT INTO tbl_muscles VALUES(84,'M. flexor digitorum profundus','Flexor digitorum profundus','Facies anterior ulnae, membrana interossea antebrachii','Basis phalangis distalis II-V','Flexio phalangis distalis, flexio phalangis mediae, flexio phalangis proximalis, flexio manus','0',35,0,'mflexordigitorumprofundus.png','N/A','',182);
+INSERT INTO tbl_muscles VALUES(85,'M. flexor pollicis longus','Flexor pollicis longus muscle','Facies anterior radii, membrana interossea antebrachii','Basis phalangis distalis pollicis','Flaxio phalangis distalis et proximalis pollicis, flexio poliicis, flexio manus','0',35,0,'mflexorpollicislongus.png','N/A','',182);
+INSERT INTO tbl_muscles VALUES(86,'M. pronator quadratus','Pronator quadratus muscle','Facies anterior ulnae','Facies anterior radii','Pronatio antebrachii','0',35,0,'mpronatorquadratus.png','N/A','',183);
+INSERT INTO tbl_muscles VALUES(87,'M. brachioradialis','Brachioradialis muscle','Margo lateralis humeri, septum intermusculare laterale','Processus styloideus radii','Flexio antebrachii, position between supinatio et pronatio antebrachii','0',21,0,'mbrachioradialis.png','N/A','',165);
+INSERT INTO tbl_muscles VALUES(88,'M. extensor carpi radialis longus','Extensor carpi radialis longus muscle','Margo et epicondylus lateralis humeri, septum intermusculare laterale','Basis ossis metacarpalis II','Extensio manus, abductio manus','0',22,0,'mextensorcarpiradialislongus.png','N/A','',165);
+INSERT INTO tbl_muscles VALUES(89,'M. extensor carpi radialis brevis','Extensor carpi radialis brevis muscle','Epicondylus lateralis humeri','Basis ossis metacarpalis III','Extensio manus, abductio manus','0',22,0,'mextensorcarpiradialisbrevis.png','N/A','',165);
+INSERT INTO tbl_muscles VALUES(90,'M. extensor digitorum','Extensor digitorum muscle','Epicondylus lateralis humeri','Basis phalangis mediae, basis phalangis distalis (II - V fingers) ','Extensio digitorum, extensio manus ','0',0,0,'mextensordigitorum.png','N/A','',184);
+INSERT INTO tbl_muscles VALUES(91,'M. extensor digiti minimi','Extensor digiti minimi muscle','Epicondylus lateralis humeri','Basis phalangis mediae, basis phalangis distalis (V finger)','Extensio digiti minimi ','0',0,0,'mextensordigitiminimi.png','N/A','',184);
+INSERT INTO tbl_muscles VALUES(92,'M. extensor carpi ulnaris','Extensor carpi ulnaris muscle','Epicondylus lateralis humeri, olecranon, facies posterior ulnae','Basis ossis metacarpalis V ','Extensio manus, adductio manus ','0',0,0,'mextensorcarpiulnaris.png','N/A','',184);
+INSERT INTO tbl_muscles VALUES(93,'M. abductor pollicis longus','Abductor pollicis longus muscle','Facies posterior ulnae et radii, membrana interossea antebrachii ','Basis ossis metacarpalis I ','Abductio pollicis ','0',0,0,'mabductorpollicislongus.png','N/A','',185);
+INSERT INTO tbl_muscles VALUES(94,'M. extensor pollicis brevis','Extensor pollicis brevis muscle','Facies posterior radii et membrana interossea antebrachii ','Basis phalangis proximalis pollicis ','Extensio phalangis proximalis pollicis ','0',0,0,'mextensorpollicisbrevis.png','N/A','',185);
+INSERT INTO tbl_muscles VALUES(95,'M. extensor pollicis longus','Extensor pollicis longus muscle','Facies posterior ulnae, membrana interossea antebrachii ','Basis phalangis distalis pollicis ','Extensio pollicis','0',0,0,'mextensorpollicislongus.png','N/A','',185);
+INSERT INTO tbl_muscles VALUES(96,'M. extensor indicis','Extensor indicis muscle','Facies posterior ulnae, membrana interossea antebrachii ','Basis phalangis mediae, basis phalangis distalis indicis ','Extensio indicis ','0',0,0,'mextensorindicis.png','N/A','',185);
+INSERT INTO tbl_muscles VALUES(97,'M. supinator','Supinator muscle','Epicondylus lateralis humeri, ulna, lig. collaterale radiale ','Facies lateralis radii ','Supinatio antebrachii ','0',0,0,'msupinator.png','N/A','',185);
+>>>>>>> Artery supply hand #49
 INSERT INTO tbl_muscles VALUES(98,'M. abductor pollicis brevis ','Abductor pollicis brevis muscle','etinaculum flexorum, os scaphoideum ','Basis phalangis proximalis pollicis ','Abductio pollicis','0',37,0,'mabductorpollicisbrevis.png','N/A','',167);
 INSERT INTO tbl_muscles VALUES(99,'M. flexor pollicis brevis, caput superficiale','Superficial head of the flexor pollicis brevis muscle','etinaculum flexorum, os scaphoideum ','Basis phalangis proximalis pollicis ','Flexio pollicis, oppositio pollicis','0',37,0,'caputsuperficialemflexorispollicisbrevis.png','N/A','',167);
 INSERT INTO tbl_muscles VALUES(100,'M. flexor pollicis brevis, caput profundum','Deep head of the flexor pollicis brevis muscle','Os trapezium, os trapezoideum ','Basis phalangis proximalis pollicis ','Flexio pollicis, oppositio pollicis','0',37,0,'caputprofundummflexorispollicisbrevis.png','N/A','',167);
@@ -627,9 +633,15 @@ INSERT INTO tbl_muscles VALUES(101,'M. opponens pollicis','Abductor pollicis lon
 INSERT INTO tbl_muscles VALUES(102,'M. adductor pollicis, caput obliquum','Oblique head of the adductor pollicis muscle','Os capitatum ','Basis phalangis proximalis pollicis ','Adductio pollicis','0',38,0,'caputobliquummadductorpollicis.png','N/A','',167);
 INSERT INTO tbl_muscles VALUES(103,'M. adductor pollicis, caput transversum','Transverse head of the adductor pollicis muscle','Os metacarpale III ','Basis phalangis proximalis pollicis ','Adductio pollicis','0',38,0,'caputtransversummadductorpollicis.png','N/A','',167);
 INSERT INTO tbl_muscles VALUES(104,'M. abductor digiti minimi ','Abductor digiti minimi muscle','Os pisiforme, retinaculum flexorum ','Basis phalangis proximalis digiti minimi ','Abductio digiti minimi ','0',28,0,'mabductordigitiminimi.png','N/A','',168);
+<<<<<<< HEAD
 INSERT INTO tbl_muscles VALUES(105,'M. flexor digiti minimi brevis ','Flexor digiti minimi brevis muscle','Hamulus ossis hamati, retinaculum flexorum','Basis phalangis proximalis digiti minimi ','Flexio digiti minimi ',42,28,0,'mflexordigitiminimibrevis.png','N/A','',168);
 INSERT INTO tbl_muscles VALUES(106,'M. opponens digiti minimi ','Opponens digiti minimi muscle','Hamulus ossis hamati, retinaculum flexorum ','Os metacarpale V ','Oppositio digiti minimi ',42,28,0,'mopponensdigitiminimi.png','N/A','',168);
 INSERT INTO tbl_muscles VALUES(107,'M. palmaris brevis ','Palmaris brevis muscle','Retinaculum flexorum and aponeurosis palmaris ulnar side ','Skin of the palm on ulnar side ','Wrinkles of the skin ',42,28,0,'mpalmarisbrevis.png','N/A','',168);
+=======
+INSERT INTO tbl_muscles VALUES(105,'M. flexor digiti minimi brevis ','Flexor digiti minimi brevis muscle','Hamulus ossis hamati, retinaculum flexorum','Basis phalangis proximalis digiti minimi ','Flexio digiti minimi ','0',28,0,'mflexordigitiminimibrevis.png','N/A','',168);
+INSERT INTO tbl_muscles VALUES(106,'M. opponens digiti minimi ','Opponens digiti minimi muscle','Hamulus ossis hamati, retinaculum flexorum ','Os metacarpale V ','Oppositio digiti minimi ','0',28,0,'mopponensdigitiminimi.png','N/A','',168);
+INSERT INTO tbl_muscles VALUES(107,'M. palmaris brevis ','Palmaris brevis muscle','Retinaculum flexorum and aponeurosis palmaris ulnar side ','Skin of the palm on ulnar side ','Wrinkles of the skin ','0',28,0,'mpalmarisbrevis.png','N/A','',168);
+>>>>>>> Artery supply hand #49
 INSERT INTO tbl_muscles VALUES(108,'Mm. lumbricales (4)','Lumbrical muscles','M. flexor digitorum profundus tendons ','Phalanx proximalis (II - V fingers) and m. extensor digitorum tendons','Flexio phalangis proximalis, extensio phalangis mediae, extensio phalangis distalis (II - V fingers)','0',0,0,'mmlumbricales.png','N/A','',169);
 INSERT INTO tbl_muscles VALUES(109,'Mm. interossei palmares (3)','Palmar interossei muscles','Os metacarpale II, IV, V','Phalanx proximalis (II, IV, V fingers)','Adductio digitorum (pull 2nd, 4th and 5th fingers to 3rd) ','0',0,0,'mminterosseipalmares.png','N/A','',169);
 INSERT INTO tbl_muscles VALUES(110,'Mm. interossei dorsales (4)','Dorsal interossei muscles','Between metacarpal bones of 1st to 5th fingers ','Phalanx proximalis (II - IV fingers)','Abductio digitorum (pull 2nd and 4th fingers away from 3rd)','0',0,0,'mminterosseidorsales.png','N/A','',169);
@@ -700,7 +712,7 @@ INSERT INTO tbl_muscles VALUES(176,'Mm. quadratus lumborum','Quadratus lumborum 
 DELETE FROM sqlite_sequence;
 INSERT INTO sqlite_sequence VALUES('tbl_arteries',38);
 INSERT INTO sqlite_sequence VALUES('tbl_musclegroups',192);
-INSERT INTO sqlite_sequence VALUES('tbl_nerves',42);
+INSERT INTO sqlite_sequence VALUES('tbl_nerves',30);
 INSERT INTO sqlite_sequence VALUES('tbl_veins',7);
 INSERT INTO sqlite_sequence VALUES('tbl_muscles',176);
 CREATE VIEW view_arteries AS SELECT * FROM 
