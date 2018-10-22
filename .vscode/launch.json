@@ -3,15 +3,17 @@
    // Use hover for the description of the existing attributes
    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
    "version": "0.2.0",
-   "configurations": [
-   
+   "configurations": [  
+        
         {
+            // This configuration will launch the server and Chrome
+
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/MuscleWeb/bin/Debug/netcoreapp1.1/MuscleWeb.dll",
+            "program": "${workspaceFolder}/MuscleWeb/bin/Debug/netcoreapp2.1/MuscleWeb.dll",
             "args": [],
             "cwd": "${workspaceFolder}/MuscleWeb",
             "stopAtEntry": false,
@@ -38,10 +40,19 @@
             }
         },
         {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
-        }
-    ,]
+            // This configuration will ONLY launch Chrome. This means you will have to start the server manually (`dotnet run` in the MuscleWeb directory)
+
+            "name": "Launch in Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5000/muscle.html?id=19",
+            "webRoot": "${workspaceFolder}/wwwroot"
+        },
+        // {
+        //     "name": ".NET Core Attach",
+        //     "type": "coreclr",
+        //     "request": "attach",
+        //     "processId": "${command:pickProcess}"
+        // },
+    ]
 }
