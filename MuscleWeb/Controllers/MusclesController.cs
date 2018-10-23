@@ -23,7 +23,7 @@ public class MusclesController : Controller
         string sql = null;
         if (string.IsNullOrEmpty(searchTerm))
         {
-            sql = "SELECT * FROM musclesearch";  
+            sql = "SELECT id, functio, lat_name as latinName, name FROM musclesearch";  
             return connection.Read<MuscleResponse>(sql);           
         }
         else
