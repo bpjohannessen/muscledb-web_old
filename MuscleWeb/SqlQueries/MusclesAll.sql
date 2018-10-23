@@ -1,0 +1,1 @@
+SELECT id, functio, lat_name as latinName, name FROM musclesearch
