@@ -19,7 +19,7 @@ public class ArteryMusclesController : Controller
     {
         string sql = Sql.Get("ArteryById");        
         //Edited from Single() to SingleOrDefault()
-        var result = connection.Read<ArteryDetails>(sql, new {Id = id}).FirstOrDefault();
+        var result = connection.Read<ArteryDetails>(sql, new {Id = id}).ToArray();
         
         return result;
     }
