@@ -3,6 +3,18 @@
  * Contains custom css, i.e., not Skeleton CSS
  */
 
+ /*
+ Force scrollbar
+ https://stackoverflow.com/questions/12582555/always-show-browser-scrollbar-to-prevent-page-jumping
+ */
+ html {
+   overflow-y: scroll;
+ }
+
+div#mainContainer {
+  text-align: center;
+}
+
 td#muscleResultItem {
   height: 3 8px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
