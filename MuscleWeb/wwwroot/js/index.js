@@ -35,15 +35,8 @@ function search(query_value) {
 
 function showGroups(id) {
     $('#mainContent').load('groups.html', function() {
-    console.log("test ok!!");
-    console.log(id);
 
-    console.log("Setter queryurl");
-
-    var $queryurl = "api/musclegroups/" + id;
-
-
-    console.log($queryurl);
+        var $queryurl = "api/musclegroups/" + id;
 
         $.getJSON($queryurl, function (json) {
     
@@ -63,7 +56,7 @@ function showGroups(id) {
                 }
     
                 $.each(group.muscles, function (idx, muscle) {
-                    muscleList.append("<li><a href='muscle.html?id=" + muscle.id + "'>" + muscle.latinName + "</a></li>");
+                    muscleList.append("<li><a onclick='showMuscle(" + muscle.id + ")' href='#'>" + muscle.latinName + "</a></li>");
                 });
                 $.each(group.subMuscleGroups, function (idx, subgroup) {
                     renderGroup(subgroup, muscleGroupList);
@@ -75,7 +68,7 @@ function showGroups(id) {
 
 function showAbout() {
     console.log("showAbout OK!");
-    $('#mainContent').load('test.html', function() {
+    $('#mainContent').load('about.html', function() {
         pageVar = "about";
         console.log(pageVar);
         /// can add another function here
