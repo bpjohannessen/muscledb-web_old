@@ -23,7 +23,7 @@ public class MusclesController : Controller
         string sql = null;
         if (string.IsNullOrEmpty(searchTerm))
         {
-            sql = "SELECT * FROM musclesearch";  
+            sql = "SELECT id, functio, lat_name as latinName, name FROM musclesearch";  
             return connection.Read<MuscleResponse>(sql);           
         }
         else
@@ -43,7 +43,8 @@ public class MusclesController : Controller
     public MuscleDetails Get(int id)
     {
         string sql = Sql.Get("MuscleById");        
-        var result = connection.Read<MuscleDetails>(sql, new {Id = id}).Single();
+        //Edited from Single() to SingleOrDefault()
+        var result = connection.Read<MuscleDetails>(sql, new {Id = id}).SingleOrDefault();
         return result;
     }
 }

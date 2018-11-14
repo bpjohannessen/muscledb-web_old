@@ -88,5 +88,25 @@ public class MuscleDetails
     /// starting with the top level group as the first entry in the list.
     /// </summary>
     /// <returns></returns>
+
+    // For testing - should return id of artery
+    public long Arteries { get; set; }
+
+
+    // Should output something like
+    //     "MuscleArteries": [
+    //     {
+    //         "id": 1,
+    //         "name": "Temporal artery",
+    //         "latinName": "A. temporalis"
+    //     },
+    //     {
+    //         "id": 2,
+    //         "name": "Femoral artery",
+    //         "latinName": "A. femoralis"
+    //     }
+    // ]    
+    public ICollection<MuscleArtery> MuscleArteries { get; set; } 
+
     public ICollection<MuscleGroup> MuscleGroups { get; set; }
 }
