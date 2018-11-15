@@ -48,16 +48,6 @@ public class MuscleDetails
     public string Comment { get; set; }
 
     /// <summary>
-    /// Gets or sets the artery id of the muscle.
-    /// </summary>   
-    public long Artery_Id { get; set; }
-
-    /// <summary>
-    /// Gets or sets the artery name of the muscle.
-    /// </summary>  
-    public string Artery { get; set; }
-
-        /// <summary>
     /// Gets or sets the vein id of the muscle.
     /// </summary>   
     public long Vein_Id { get; set; }
@@ -67,7 +57,7 @@ public class MuscleDetails
     /// </summary>  
     public string Vein { get; set; }
 
-        /// <summary>
+    /// <summary>
     /// Gets or sets the nerve id of the muscle.
     /// </summary>   
     public long Nerve_Id { get; set; }
@@ -77,36 +67,30 @@ public class MuscleDetails
     /// </summary>  
     public string Nerve { get; set; }
 
-    // /// <summary>
-    // /// Gets or sets the arteries that supplies blood to this muscle.
-    // /// </summary>
-    // /// <returns></returns>
-    // public ICollection<Artery> Arteries {get;set;}
+    /// <summary>
+    /// Gets or sets a list of arteries that supplies the muscle
+    /// </summary>
+    /// <returns></returns>  
+    public ICollection<MuscleArtery> MuscleArteries { get; set; }
+
+    /// <summary>
+    /// Gets or sets a list of veins that drains the muscle
+    /// </summary>
+    /// <returns></returns>
+
+    public ICollection<MuscleVein> MuscleVeins { get; set; }
+
+    /// <summary>
+    /// Gets or sets a list of nerves that supplies the muscle
+    /// </summary>
+    /// <returns></returns>
+
+    public ICollection<MuscleNerve> MuscleNerves { get; set; }
 
     /// <summary>
     /// Gets or sets a list of muscle groups that represents the hierarchy of muscle groups 
     /// starting with the top level group as the first entry in the list.
     /// </summary>
     /// <returns></returns>
-
-    // For testing - should return id of artery
-    public long Arteries { get; set; }
-
-
-    // Should output something like
-    //     "MuscleArteries": [
-    //     {
-    //         "id": 1,
-    //         "name": "Temporal artery",
-    //         "latinName": "A. temporalis"
-    //     },
-    //     {
-    //         "id": 2,
-    //         "name": "Femoral artery",
-    //         "latinName": "A. femoralis"
-    //     }
-    // ]    
-    public ICollection<MuscleArtery> MuscleArteries { get; set; } 
-
     public ICollection<MuscleGroup> MuscleGroups { get; set; }
 }
