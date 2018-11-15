@@ -18,18 +18,28 @@ $(document).ready(function () {
         var $table = $("tbody#tbodyappend");
 
         $table.append("<tr><th colspan='2' style='text-align: center;'>" + json.latinName + "</th></tr>");
-        $table.append("<tr><th colspan='2' style='text-align: center; border: 0;'>" + json.name + "</th></tr>");
-        
+        $table.append("<tr><th colspan='2' style='text-align: center; border: 0;'>" + json.name + "</th></tr>");        
         $table.append("<tr><td id='muscleGroupCell' colspan='2' style='text-align: center; font-style: italic; font-size: 0.8em;'>");
         $.each(json.muscleGroups, function (key, value) {
             $("#muscleGroupCell").append(value.name + "<br>");            
         });
         $table.append("</td></tr>");
-
         $table.append("<tr><th>Origo:</th><td>" + json.origo + "</td></tr>");
         $table.append("<tr><th>Insertio:</th><td>" + json.insertio + "</td></tr>");
         $table.append("<tr><th>Functio:</th><td>" + json.functio + "</td></tr>");
-        $table.append("<tr><th>Artery:</th><td>" + json.artery + "</td></tr>");
+        if(json.muscleArteries.length > 1)
+        {
+            var arteryLabel = "Arteries:";
+        }
+        else
+        {
+            var arteryLabel = "Artery:";
+        }
+        $table.append("<tr><th>" + arteryLabel + "</th><td id='muscleArteryCell'>");
+        $.each(json.muscleArteries, function (key, value) {
+            $("#muscleArteryCell").append(value.latinName + "<br>");            
+        });
+        $table.append("</td></tr>");        
         $table.append("<tr><th>Vein:</th><td>" + json.vein + "</td></tr>");
         $table.append("<tr><th>Nerve:</th><td>" + json.nerve + "</td></tr>");
         //$table.append("<tr><th>Image(url):</th><td>" + json.image + "</td></tr>");

@@ -17,8 +17,10 @@
     <PackageReference Include="DbReader" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SqlQueries\MusclesAll.sql" />
     <EmbeddedResource Include="SqlQueries\MuscleById.sql" />
     <EmbeddedResource Include="SqlQueries\MusclesByGroupId.sql" />
     <EmbeddedResource Include="SqlQueries\MuscleGroupHierarchy.sql" />
+    <EmbeddedResource Include="SqlQueries\ArteryById.sql" />
   </ItemGroup>
 </Project>

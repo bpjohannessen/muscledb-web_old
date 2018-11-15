@@ -14,14 +14,14 @@
             <div class="u-full-width">
                 <nav>
                     <ul style="height: 56px;">
-                        <li><a href="about.html">about</a></li>
-                        <li><a href="groups.html?id=130">lower extremities</a></li>
-                        <li><a href="groups.html?id=129">upper extremities</a></li>
-                        <li><a href="groups.html?id=131">abdomen</a></li>
-                        <li><a href="groups.html?id=128">thorax</a></li>
-                        <li><a href="groups.html?id=127">neck</a></li>
-                        <li><a href="groups.html?id=126">head</a></li>
                         <li><a href="index.html">muscles of the...</a></li>
+                        <li><a href="groups.html?id=126">head</a></li>
+                        <li><a href="groups.html?id=127">neck</a></li>
+                        <li><a href="groups.html?id=128">thorax</a></li>
+                        <li><a href="groups.html?id=131">abdomen</a></li>
+                        <li><a href="groups.html?id=129">upper extremities</a></li>
+                        <li><a href="groups.html?id=130">lower extremities</a></li>
+                        <li><a href="about.html">about</a></li>
                     </ul>
                 </nav>
             </div>
@@ -30,7 +30,8 @@
     <div class="container">
         <div class="row">
             <div class="twelve columns" style="margin-top: 10px;">
-                <div class="row">
+                <div class="row" id="mainContent">
+                    <!-- When DOM is updated, the update will be appended here, and the div below will be removed -->
                     <div class="four columns offset-by-four">
                         <input type="text" id="searchterm" placeholder="Search" autocomplete="off" oninput="inputchanged()">
                         <table id="muscleResults" style="border: 1px solid black; margin-left: auto; margin-right: auto;">

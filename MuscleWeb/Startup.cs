@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -38,7 +39,9 @@ namespace MuscleWeb
 
         private IDbConnection CreateConnection()
         {
-            SqliteConnection connection = new SqliteConnection("data source = muscles.db");
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var pathtoDatabase = Path.Combine(baseDirectory, "muscles.db");
+            SqliteConnection connection = new SqliteConnection($"data source = {pathtoDatabase}");
             DbReaderOptions.WhenReading<long?>().Use((rd, i)=> rd.GetInt32(i));
             DbReaderOptions.WhenReading<long>().Use((rd, i)=> rd.GetInt32(i));
             DbReaderOptions.WhenReading<string>().Use((rd, i)=> (string)rd.GetValue(i));
