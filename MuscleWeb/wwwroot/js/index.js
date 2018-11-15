@@ -16,7 +16,7 @@ function search(query_value) {
         $(".appended").remove(); //moved from line 14        
         var $table = $("tbody#tbodyappend");
         $.each(json, function (idx, muscleitem) {
-            $table.append("<tr class='appended'><td id='muscleResultItem'><a onclick='showMuscle(" + muscleitem.id + ")'><div>" + muscleitem.name + "</div></a></td></tr>");
+            $table.append("<tr class='appended'><td id='muscleResultItem'><a href='./muscle.html?id=" + muscleitem.id + "'><div>" + muscleitem.name + "</div></a></td></tr>");
         });
     });
 }
