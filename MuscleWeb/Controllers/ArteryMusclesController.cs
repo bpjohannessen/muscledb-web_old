@@ -17,11 +17,7 @@ public class ArteryMusclesController : Controller
     [HttpGet("{id}")]
     public ArteryDetails Get(int id)
     {
-        string sql = Sql.Get("ArteryById");        
-        //Edited from Single() to SingleOrDefault()
-        //Bernhard: Dette tror jeg er noe kødd med!
-        var result = connection.Read<ArteryDetails>(sql, new {Id = id}).FirstOrDefault();
-        
-        return result;
+        string sql = Sql.Get("ArteryById");
+        return connection.Read<ArteryDetails>(sql, new {Id = id}).SingleOrDefault();
     }
 }
