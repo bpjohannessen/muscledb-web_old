@@ -22,5 +22,8 @@
     <EmbeddedResource Include="SqlQueries\MusclesByGroupId.sql" />
     <EmbeddedResource Include="SqlQueries\MuscleGroupHierarchy.sql" />
     <EmbeddedResource Include="SqlQueries\ArteryById.sql" />
+    <EmbeddedResource Include="SqlQueries\VeinById.sql" />
+    <EmbeddedResource Include="SqlQueries\NerveById.sql" />
+
   </ItemGroup>
 </Project>

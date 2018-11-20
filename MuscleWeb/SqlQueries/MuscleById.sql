@@ -18,11 +18,21 @@ SELECT
 
     (SELECT aa.id FROM tbl_arteries aa WHERE aa.id = la.artery_id) as muscleArteries_id,
     (SELECT aa.name FROM tbl_arteries aa WHERE aa.id = la.artery_id) as muscleArteries_name,
-    (SELECT aa.lat_name FROM tbl_arteries aa WHERE aa.id = la.artery_id) as muscleArteries_latinName
+    (SELECT aa.lat_name FROM tbl_arteries aa WHERE aa.id = la.artery_id) as muscleArteries_latinName,
+
+    (SELECT vv.id FROM tbl_veins vv WHERE vv.id = lv.vein_id) as muscleVeins_id,
+    (SELECT vv.name FROM tbl_veins vv WHERE vv.id = lv.vein_id) as muscleVeins_name,
+    (SELECT vv.lat_name FROM tbl_veins vv WHERE vv.id = lv.vein_id) as muscleVeins_latinName,
+
+    (SELECT nn.id FROM tbl_nerves nn WHERE nn.id = ln.nerve_id) as muscleNerves_id,
+    (SELECT nn.name FROM tbl_nerves nn WHERE nn.id = ln.nerve_id) as muscleNerves_name,
+    (SELECT nn.lat_name FROM tbl_nerves nn WHERE nn.id = ln.nerve_id) as muscleNerves_latinName
 
 FROM 
     tbl_muscles as m
 INNER JOIN view_grouptree gt on m.musclegroup_id = gt.bottomgroupid
 INNER JOIN tbl_link_arteries la on m.id = la.muscle_id
-WHERE m.id = @id;
+INNER JOIN tbl_link_veins lv on m.id = lv.muscle_id
+INNER JOIN tbl_link_nerves ln on m.id = ln.muscle_id
+WHERE m.id = @id
 

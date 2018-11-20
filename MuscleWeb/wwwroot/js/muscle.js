@@ -36,12 +36,42 @@ $(document).ready(function () {
             var arteryLabel = "Artery:";
         }
         $table.append("<tr><th>" + arteryLabel + "</th><td id='muscleArteryCell'>");
-        $.each(json.muscleArteries, function (key, value) {
-            $("#muscleArteryCell").append(value.latinName + "<br>");            
+        $.each(json.muscleArteries, function (key, ArteryValue) {
+            $("#muscleArteryCell").append("<a href='artery.html?id=" + ArteryValue.id + "'>" + ArteryValue.latinName + "</a><br>");            
         });
         $table.append("</td></tr>");        
-        $table.append("<tr><th>Vein:</th><td>" + json.vein + "</td></tr>");
-        $table.append("<tr><th>Nerve:</th><td>" + json.nerve + "</td></tr>");
+        //$table.append("<tr><th>Vein:</th><td>" + json.vein + "</td></tr>");
+
+        ////////////////////////////77
+        
+        if(json.muscleVeins.length > 1)
+        {
+            var veinLabel = "Veins:";
+        }
+        else
+        {
+            var veinLabel = "Vein:";
+        }
+        $table.append("<tr><th>" + veinLabel + "</th><td id='muscleVeinCell'>");
+        $.each(json.muscleVeins, function (key, VeinValue) {
+            $("#muscleVeinCell").append("<a href='vein.html?id=" + VeinValue.id +"'>" + VeinValue.latinName + "</a><br>");            
+        });
+
+        //////////////////////////////////
+
+        if(json.muscleNerves.length > 1)
+        {
+            var nerveLabel = "Nerves:";
+        }
+        else
+        {
+            var nerveLabel = "Nerve:";
+        }
+        $table.append("<tr><th>" + nerveLabel + "</th><td id='muscleNerveCell'>");
+        $.each(json.muscleNerves, function (key, NerveValue) {
+            $("#muscleNerveCell").append("<a href='nerve.html?id=" + NerveValue.id + "'>" + NerveValue.latinName + "</a><br>");            
+        });
+
         //$table.append("<tr><th>Image(url):</th><td>" + json.image + "</td></tr>");
         $table.append("<tr><td colspan='2' style='text-align: center;'><image style='max-width: 250px;' src='images/muscles/" + json.image + "'></td></tr>");
         if(json.comment != 'N/A') {

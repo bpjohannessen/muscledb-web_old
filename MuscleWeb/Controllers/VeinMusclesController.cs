@@ -5,19 +5,19 @@ using DbReader;
 using System.Linq;
 
 [Route("api/[controller]")]
-public class ArteryMusclesController : Controller
+public class VeinMusclesController : Controller
 {
     private IDbConnection connection;
 
-    public ArteryMusclesController(IDbConnection connection)
+    public VeinMusclesController(IDbConnection connection)
     {
         this.connection = connection;
     }
 
     [HttpGet("{id}")]
-    public ArteryDetails Get(int id)
+    public VeinDetails Get(int id)
     {
-        string sql = Sql.Get("ArteryById");
-        return connection.Read<ArteryDetails>(sql, new {Id = id}).SingleOrDefault();
+        string sql = Sql.Get("VeinById");
+        return connection.Read<VeinDetails>(sql, new {Id = id}).SingleOrDefault();
     }
 }

@@ -1,18 +1,18 @@
-public class ArteryMuscle {
+public class MuscleNerve {
 
     /// <summary>
-    /// Gets or sets the artery id
+    /// Gets or sets the nerve id
     /// </summary>
     public long Id { get; set; }
 
     /// <summary>
-    /// Gets or sets the artery name (English)
+    /// Gets or sets the nerve name (English)
     /// </summary>
     public string Name { get; set; }
-    
+
     /// <summary>
-    /// Gets or sets the artery name (Latin)
+    /// Gets or sets the nerve name (Latin)
     /// </summary>
     public string LatinName { get; set; }
-
+    
 }
