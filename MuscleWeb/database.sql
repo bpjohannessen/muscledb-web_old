@@ -1298,8 +1298,6 @@ INSERT INTO tbl_link_nerves VALUES(167,173,0);
 INSERT INTO tbl_link_nerves VALUES(168,174,0);
 INSERT INTO tbl_link_nerves VALUES(169,175,0);
 INSERT INTO tbl_link_nerves VALUES(170,176,0);
-INSERT INTO sqlite_master(type,name,tbl_name,rootpage,sql)VALUES('table','musclesearch','musclesearch',0,'CREATE VIRTUAL TABLE musclesearch USING fts4(id, lat_name, name, origo, insertio, functio)');
-INSERT INTO sqlite_master(type,name,tbl_name,rootpage,sql)VALUES('table','musclesearch','musclesearch',0,'CREATE VIRTUAL TABLE musclesearch USING fts4(id, lat_name, name, origo, insertio, functio)');
 DELETE FROM sqlite_sequence;
 INSERT INTO sqlite_sequence VALUES('tbl_arteries',120);
 INSERT INTO sqlite_sequence VALUES('tbl_musclegroups',192);
