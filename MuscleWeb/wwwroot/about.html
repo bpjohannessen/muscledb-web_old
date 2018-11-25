@@ -10,18 +10,14 @@
      <div id="main" class="container">
         <div class="row">
             <div class="u-full-width">
-                <nav>
-                    <ul style="height: 56px;">
-                        <li><a href="index.html">muscles of the...</a></li>
-                        <li><a href="groups.html?id=126">head</a></li>
-                        <li><a href="groups.html?id=127">neck</a></li>
-                        <li><a href="groups.html?id=128">thorax</a></li>
-                        <li><a href="groups.html?id=131">abdomen</a></li>
-                        <li><a href="groups.html?id=129">upper extremities</a></li>
-                        <li><a href="groups.html?id=130">lower extremities</a></li>
-                        <li><a href="about.html">about</a></li>
-                    </ul>
-                </nav>
+                <nav id="nav-replace"></nav>
+                <script>
+                    window.onload = function(){
+                        $.get("nav.html", function(data){
+                            $("#nav-replace").html(data);
+                        })
+                    }
+                </script>
             </div>
         </div>
          <div class="row">
