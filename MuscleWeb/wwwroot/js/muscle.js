@@ -13,8 +13,11 @@ function getQueryVariable(variable) {
 $(document).ready(function () {
 
     var $queryurl = "api/muscles/" + getQueryVariable('id');
+    console.log($queryurl);
 
     $.getJSON($queryurl, function (json) {
+        console.log("Printing json");
+        console.log(json);
         var $table = $("tbody#tbodyappend");
 
         $table.append("<tr><th colspan='2' style='text-align: center;'>" + json.latinName + "</th></tr>");

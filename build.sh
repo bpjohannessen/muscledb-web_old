@@ -8,10 +8,10 @@ dotnet publish MuscleWeb/
 function database()
 {
 build
-rm -f MuscleWeb/bin/Debug/netcoreapp1.1/publish/muscles.db
-cat MuscleWeb/bin/Debug/netcoreapp1.1/publish/database.sql | sqlite3 MuscleWeb/bin/Debug/netcoreapp1.1/publish/muscles.db
+rm -f MuscleWeb/bin/Debug/netcoreapp2.1/publish/muscles.db
+cat MuscleWeb/bin/Debug/netcoreapp2.1/publish/database.sql | sqlite3 MuscleWeb/bin/Debug/netcoreapp2.1/publish/muscles.db
 
-sqlite3 MuscleWeb/bin/Debug/netcoreapp1.1/publish/muscles.db '
+sqlite3 MuscleWeb/bin/Debug/netcoreapp2.1/publish/muscles.db '
 delete from musclesearch;
 insert into musclesearch
 select 
@@ -29,7 +29,7 @@ from
 function run()
 {
 database
-cd MuscleWeb/bin/Debug/netcoreapp1.1/publish/ 
+cd MuscleWeb/bin/Debug/netcoreapp2.1/publish/ 
 dotnet MuscleWeb.dll 
 }
 
